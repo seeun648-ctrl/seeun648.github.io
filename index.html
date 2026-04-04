@@ -104,10 +104,16 @@ section{padding:100px 5%}
 .video-wrap{border-radius:4px;overflow:hidden;background:var(--ink)}
 .video-wrap iframe,.video-wrap video{width:100%;aspect-ratio:16/9;display:block;border:none}
 .video-caption{font-size:.72rem;color:var(--mist);margin-top:.6rem;font-style:italic}
-.sb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.sb-card{background:var(--warm);border:1px solid var(--border);border-radius:4px;overflow:hidden}
-.sb-card img{width:100%;display:block;object-fit:cover}
-.sb-card-info{padding:.7rem .9rem;font-size:.7rem;color:var(--mist)}
+
+/* 아카이빙 카드 */
+.archive-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2rem}
+.archive-card{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:1.6rem;display:flex;flex-direction:column;gap:.5rem}
+.archive-card-icon{font-size:1.8rem;margin-bottom:.2rem}
+.archive-card-label{font-size:.62rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.archive-card-title{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.3}
+.archive-card-desc{font-size:.78rem;color:var(--mist);line-height:1.7}
+.archive-note{background:var(--sand);border:1px solid var(--border);border-radius:6px;padding:1.2rem 1.4rem;font-size:.8rem;color:var(--mist);line-height:1.8;font-style:italic}
+
 .illust-video-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;align-items:start}
 .illust-block img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);object-fit:cover}
 .illust-block .illust-caption{font-size:.72rem;color:var(--mist);margin-top:.5rem;font-style:italic}
@@ -172,9 +178,9 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .proj-header{grid-template-columns:1fr;gap:1.5rem}
   .vgrid-2,.vgrid-3{grid-template-columns:1fr}
-  .sb-grid{grid-template-columns:repeat(2,1fr)}
   .illust-video-pair{grid-template-columns:1fr}
   .personal-grid{grid-template-columns:1fr 1fr}
+  .archive-grid{grid-template-columns:1fr 1fr}
   .nav-menu li:not(:last-child){display:none}
 }
 @media(max-width:600px){
@@ -182,7 +188,7 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
   .personal-grid{grid-template-columns:1fr}
   .project-nav{gap:.3rem}
   .pnav-btn{font-size:.65rem;padding:.4rem .7rem}
-  .sb-grid{grid-template-columns:1fr}
+  .archive-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -264,7 +270,7 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
       <button class="pnav-btn" onclick="showProject('art',this)">🎨 아트 / 외주</button>
     </div>
 
-    <!-- COOKIE BEBE -->
+    <!-- COOKIE BEBE — 아카이빙 페이지 -->
     <div class="project-page active" id="p-cookie">
       <div class="proj-header">
         <div>
@@ -284,27 +290,50 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-meta-item"><div class="proj-meta-label">Period</div><div class="proj-meta-val">약 11개월</div></div>
         </div>
       </div>
+
+      <!-- 아카이빙 카드 -->
       <div class="proj-media">
-        <div class="media-label">Animation</div>
-        <div class="video-wrap">
-          <video controls>
-            <source src="/seeun648.github.io/cookiebebe.mp4" type="video/mp4"/>
-          </video>
+        <div class="media-label">Production Archive</div>
+        <div class="archive-grid">
+          <div class="archive-card">
+            <div class="archive-card-icon">✏️</div>
+            <div class="archive-card-label">기획 · 시나리오</div>
+            <div class="archive-card-title">스토리 기획 & 시나리오 작성</div>
+            <div class="archive-card-desc">캐릭터 설정, 플롯 구성, 씬 분할까지 전 과정 직접 기획. 아이와 누나의 캐릭터 대비를 통한 코믹 연출.</div>
+          </div>
+          <div class="archive-card">
+            <div class="archive-card-icon">🎬</div>
+            <div class="archive-card-label">Storyboard</div>
+            <div class="archive-card-title">스토리보드 9컷 제작</div>
+            <div class="archive-card-desc">fade in, fade out, jump cut, match cut 등 다양한 촬영 기법을 적용한 씬 연출. 총 9페이지 분량.</div>
+          </div>
+          <div class="archive-card">
+            <div class="archive-card-icon">🎨</div>
+            <div class="archive-card-label">Concept Art</div>
+            <div class="archive-card-title">컨셉아트 & 캐릭터 디자인</div>
+            <div class="archive-card-desc">아이, 누나, 배경 소품까지 캐릭터 컨셉아트 제작. 부엌 배경 색채 및 분위기 설정.</div>
+          </div>
+          <div class="archive-card">
+            <div class="archive-card-icon">🖌️</div>
+            <div class="archive-card-label">원화 · 동화</div>
+            <div class="archive-card-title">원화 & 동화 제작</div>
+            <div class="archive-card-desc">주요 키프레임 원화 작업 및 중간 프레임 동화 작업 전담. 캐릭터 움직임의 자연스러운 흐름 구현.</div>
+          </div>
+          <div class="archive-card">
+            <div class="archive-card-icon">⚡</div>
+            <div class="archive-card-label">1인 완성</div>
+            <div class="archive-card-title">기획부터 완성까지 단독 진행</div>
+            <div class="archive-card-desc">외부 협업 없이 기획·스토리보드·컨셉아트·원화·동화 전 과정을 약 11개월간 단독으로 완성.</div>
+          </div>
+          <div class="archive-card">
+            <div class="archive-card-icon">📅</div>
+            <div class="archive-card-label">Timeline</div>
+            <div class="archive-card-title">2022.01 — 2022.11</div>
+            <div class="archive-card-desc">기획 1개월 → 스토리보드 2개월 → 원화 3개월 → 동화 및 마감 5개월. 총 약 11개월 소요.</div>
+          </div>
         </div>
-        <p class="video-caption">단편 애니메이션 'Cookie Bebe!' — 기획·스토리보드·원화·동화 전담</p>
-      </div>
-      <div class="proj-media">
-        <div class="media-label">Storyboard</div>
-        <div class="sb-grid">
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard1.jpg" alt="스토리보드 1"/><div class="sb-card-info">No.1</div></div>
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard2.jpg" alt="스토리보드 2"/><div class="sb-card-info">No.2</div></div>
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard3.jpg" alt="스토리보드 3"/><div class="sb-card-info">No.3</div></div>
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard4.jpg" alt="스토리보드 4"/><div class="sb-card-info">No.4</div></div>
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard5.jpg" alt="스토리보드 5"/><div class="sb-card-info">No.5</div></div>
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard6.jpg" alt="스토리보드 6"/><div class="sb-card-info">No.6</div></div>
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard7.jpg" alt="스토리보드 7"/><div class="sb-card-info">No.7</div></div>
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard8.jpg" alt="스토리보드 8"/><div class="sb-card-info">No.8</div></div>
-          <div class="sb-card"><img src="/seeun648.github.io/storyboard9.jpg" alt="스토리보드 9"/><div class="sb-card-info">No.9</div></div>
+        <div class="archive-note">
+          ※ 현재 영상 및 스토리보드 이미지는 업로드 준비 중입니다. 실제 결과물은 추후 업데이트 예정이에요.
         </div>
       </div>
     </div>
