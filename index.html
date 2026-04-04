@@ -7,7 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#1A1410;--ink2:#2E2219;--ink3:#4A3828;--sand:#F5F0E8;--cream:#FAF8F4;--warm:#FFFDF9;--taupe:#C8B89A;--gold:#B07D5B;--gold2:#8A5E3C;--mist:#9E8C78;--border:#E0D6C8;--white:#FFFFFF}
+:root{
+  --ink:#1A1410;--ink2:#2E2219;--ink3:#4A3828;
+  --sand:#F5F0E8;--cream:#FAF8F4;--warm:#FFFDF9;
+  --taupe:#C8B89A;--gold:#B07D5B;--gold2:#8A5E3C;
+  --mist:#9E8C78;--border:#E0D6C8;--white:#FFFFFF;
+}
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 #loader{position:fixed;inset:0;z-index:9999;background:var(--ink);display:flex;align-items:center;justify-content:center;transition:opacity .7s,visibility .7s}
@@ -102,11 +107,12 @@ section{padding:100px 5%}
 .sb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .sb-card{background:var(--warm);border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .sb-card img{width:100%;display:block;object-fit:cover}
-.sb-card-info{padding:.6rem .8rem;font-size:.68rem;color:var(--mist)}
+.sb-card-info{padding:.7rem .9rem;font-size:.7rem;color:var(--mist)}
 .illust-video-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;align-items:start}
 .illust-block img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);object-fit:cover}
 .illust-block .illust-caption{font-size:.72rem;color:var(--mist);margin-top:.5rem;font-style:italic}
-.illust-solo img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);max-height:500px;object-fit:cover}
+.illust-solo{max-width:500px}
+.illust-solo img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
 .personal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .personal-grid img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);object-fit:cover;aspect-ratio:3/4;transition:transform .2s,box-shadow .2s}
 .personal-grid img:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(100,70,40,.12)}
@@ -159,15 +165,42 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
 .reveal.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-@media(max-width:960px){.hero-inner{grid-template-columns:1fr;gap:2.5rem}.hero-card{display:none}.str-grid{grid-template-columns:repeat(3,1fr)}.about-grid{grid-template-columns:1fr;gap:2.5rem}.proj-header{grid-template-columns:1fr;gap:1.5rem}.vgrid-2,.vgrid-3{grid-template-columns:1fr}.sb-grid{grid-template-columns:1fr 1fr}.illust-video-pair{grid-template-columns:1fr}.personal-grid{grid-template-columns:1fr 1fr}.nav-menu li:not(:last-child){display:none}}
-@media(max-width:600px){.str-grid{grid-template-columns:1fr 1fr}.personal-grid{grid-template-columns:1fr}.project-nav{gap:.3rem}.pnav-btn{font-size:.65rem;padding:.4rem .7rem}.sb-grid{grid-template-columns:1fr}}
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-card{display:none}
+  .str-grid{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .proj-header{grid-template-columns:1fr;gap:1.5rem}
+  .vgrid-2,.vgrid-3{grid-template-columns:1fr}
+  .sb-grid{grid-template-columns:repeat(2,1fr)}
+  .illust-video-pair{grid-template-columns:1fr}
+  .personal-grid{grid-template-columns:1fr 1fr}
+  .nav-menu li:not(:last-child){display:none}
+}
+@media(max-width:600px){
+  .str-grid{grid-template-columns:1fr 1fr}
+  .personal-grid{grid-template-columns:1fr}
+  .project-nav{gap:.3rem}
+  .pnav-btn{font-size:.65rem;padding:.4rem .7rem}
+  .sb-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div id="loader"><div class="loader-inner"><div class="loader-name">이세은</div><div class="loader-sub">Animator · Artist · Creator</div><div class="loader-line"></div></div></div>
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-name">이세은</div>
+    <div class="loader-sub">Animator · Artist · Creator</div>
+    <div class="loader-line"></div>
+  </div>
+</div>
 <nav id="nav">
   <div class="nav-logo">이세은</div>
-  <ul class="nav-menu"><li><a href="#projects">Works</a></li><li><a href="#about">About</a></li><li><a href="#cta" class="nav-cta-btn">문의하기</a></li></ul>
+  <ul class="nav-menu">
+    <li><a href="#projects">Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#cta" class="nav-cta-btn">문의하기</a></li>
+  </ul>
 </nav>
 <section id="hero">
   <div class="hero-bg"></div><div class="hero-grain"></div><div class="hero-line-v"></div>
@@ -176,9 +209,16 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
       <div class="hero-eyebrow reveal"><div class="eyebrow-line"></div><div class="eyebrow-text">2D · 3D · Motion · XR</div></div>
       <h1 class="hero-name reveal d1">이세은</h1>
       <span class="hero-name-en reveal d2">Lee Seeun</span>
-      <p class="hero-desc reveal d3">스토리보드 한 장부터 최종 편집까지 —<br/><strong>기획·제작·연출 전 과정</strong>을 직접 소화하는<br/>2D/3D 올라운드 애니메이터 & 아티스트</p>
-      <div class="hero-chips reveal d3"><span class="hchip">2D Animation</span><span class="hchip">3D Modeling & Rigging</span><span class="hchip">Character Design</span><span class="hchip">Storyboard</span><span class="hchip">Motion Graphic</span><span class="hchip">XR Art</span></div>
-      <div class="hero-btns reveal d4"><a href="#projects" class="btn-hero-main">Works 보기</a><a href="#cta" class="btn-hero-ghost">작업 문의 →</a></div>
+      <p class="hero-desc reveal d3">스토리보드 한 장부터 최종 편집까지 —<br/><strong>기획·제작·연출 전 과정</strong>을 직접 소화하는<br/>2D/3D 올라운드 애니메이터 &amp; 아티스트</p>
+      <div class="hero-chips reveal d3">
+        <span class="hchip">2D Animation</span><span class="hchip">3D Modeling &amp; Rigging</span>
+        <span class="hchip">Character Design</span><span class="hchip">Storyboard</span>
+        <span class="hchip">Motion Graphic</span><span class="hchip">XR Art</span>
+      </div>
+      <div class="hero-btns reveal d4">
+        <a href="#projects" class="btn-hero-main">Works 보기</a>
+        <a href="#cta" class="btn-hero-ghost">작업 문의 →</a>
+      </div>
     </div>
     <div class="hero-card reveal d2">
       <div class="hc-label">Strengths</div>
@@ -232,7 +272,11 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
           <h3 class="proj-title">Cookie Bebe!</h3>
           <div class="proj-period">2022.01 — 2022.11</div>
           <p class="proj-desc">기획부터 동화까지 모든 과정을 단독으로 진행한 개인 단편 애니메이션. 부엌에서 쿠키를 만들려는 아이와 누나의 좌충우돌 이야기. fade in부터 jump match cut까지 다양한 촬영 기법을 활용한 스토리보드 연출.</p>
-          <div class="proj-roles"><span class="proj-role">기획</span><span class="proj-role">스토리보드</span><span class="proj-role">컨셉아트</span><span class="proj-role">원화</span><span class="proj-role">동화</span><span class="proj-role">1인 완성</span></div>
+          <div class="proj-roles">
+            <span class="proj-role">기획</span><span class="proj-role">스토리보드</span>
+            <span class="proj-role">컨셉아트</span><span class="proj-role">원화</span>
+            <span class="proj-role">동화</span><span class="proj-role">1인 완성</span>
+          </div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">단편 애니메이션</div></div>
@@ -243,22 +287,24 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
       <div class="proj-media">
         <div class="media-label">Animation</div>
         <div class="video-wrap">
-          <video controls><source src="cookiebebe.mp4" type="video/mp4"/>브라우저가 video 태그를 지원하지 않습니다.</video>
+          <video controls>
+            <source src="/seeun648.github.io/cookiebebe.mp4" type="video/mp4"/>
+          </video>
         </div>
         <p class="video-caption">단편 애니메이션 'Cookie Bebe!' — 기획·스토리보드·원화·동화 전담</p>
       </div>
       <div class="proj-media">
         <div class="media-label">Storyboard</div>
         <div class="sb-grid">
-          <div class="sb-card"><img src="storyboard1.jpg" alt="스토리보드 1"/><div class="sb-card-info">No.1</div></div>
-          <div class="sb-card"><img src="storyboard2.jpg" alt="스토리보드 2"/><div class="sb-card-info">No.2</div></div>
-          <div class="sb-card"><img src="storyboard3.jpg" alt="스토리보드 3"/><div class="sb-card-info">No.3</div></div>
-          <div class="sb-card"><img src="storyboard4.jpg" alt="스토리보드 4"/><div class="sb-card-info">No.4</div></div>
-          <div class="sb-card"><img src="storyboard5.jpg" alt="스토리보드 5"/><div class="sb-card-info">No.5</div></div>
-          <div class="sb-card"><img src="storyboard6.jpg" alt="스토리보드 6"/><div class="sb-card-info">No.6</div></div>
-          <div class="sb-card"><img src="storyboard7.jpg" alt="스토리보드 7"/><div class="sb-card-info">No.7</div></div>
-          <div class="sb-card"><img src="storyboard8.jpg" alt="스토리보드 8"/><div class="sb-card-info">No.8</div></div>
-          <div class="sb-card"><img src="storyboard9.jpg" alt="스토리보드 9"/><div class="sb-card-info">No.9</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard1.jpg" alt="스토리보드 1"/><div class="sb-card-info">No.1</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard2.jpg" alt="스토리보드 2"/><div class="sb-card-info">No.2</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard3.jpg" alt="스토리보드 3"/><div class="sb-card-info">No.3</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard4.jpg" alt="스토리보드 4"/><div class="sb-card-info">No.4</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard5.jpg" alt="스토리보드 5"/><div class="sb-card-info">No.5</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard6.jpg" alt="스토리보드 6"/><div class="sb-card-info">No.6</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard7.jpg" alt="스토리보드 7"/><div class="sb-card-info">No.7</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard8.jpg" alt="스토리보드 8"/><div class="sb-card-info">No.8</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard9.jpg" alt="스토리보드 9"/><div class="sb-card-info">No.9</div></div>
         </div>
       </div>
     </div>
@@ -271,7 +317,11 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
           <h3 class="proj-title">아이코닉무브먼트<br/>2D 주임</h3>
           <div class="proj-period">2022.04 — 2023.01</div>
           <p class="proj-desc">제작 1팀 총괄 주임으로 2D 애니메이션, NFT 일러스트, 모션그래픽 전반을 리딩. 존중탐험대 시즌3 전체 캐릭터 시트 및 스토리보드, 에펙 완성. k3k 1인 제작, 원소주 후보정, 영도 프로젝션 맵핑 애니메이팅까지 다양한 포맷의 프로젝트를 진행했습니다.</p>
-          <div class="proj-roles"><span class="proj-role">팀 총괄</span><span class="proj-role">캐릭터 시트</span><span class="proj-role">스토리보드</span><span class="proj-role">애니메이팅</span><span class="proj-role">편집</span><span class="proj-role">NFT 일러스트</span><span class="proj-role">사운드 연출</span></div>
+          <div class="proj-roles">
+            <span class="proj-role">팀 총괄</span><span class="proj-role">캐릭터 시트</span>
+            <span class="proj-role">스토리보드</span><span class="proj-role">애니메이팅</span>
+            <span class="proj-role">편집</span><span class="proj-role">NFT 일러스트</span><span class="proj-role">사운드 연출</span>
+          </div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">기업 프로젝트</div></div>
@@ -309,7 +359,11 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
           <h3 class="proj-title">집쇼코리아<br/>XR팀 아티스트</h3>
           <div class="proj-period">2023.02 — 2023.06</div>
           <p class="proj-desc">확장현실(XR) 환경에 최적화된 2D/3D 아트 에셋 제작. 송암미술관·함안박물관 등 문화기관 프로젝트 다수 참여.</p>
-          <div class="proj-roles"><span class="proj-role">영상 Source 디자인</span><span class="proj-role">스토리보드</span><span class="proj-role">캐릭터 디자인</span><span class="proj-role">3D 모델링</span><span class="proj-role">텍스쳐링</span><span class="proj-role">1인 제작</span></div>
+          <div class="proj-roles">
+            <span class="proj-role">영상 Source 디자인</span><span class="proj-role">스토리보드</span>
+            <span class="proj-role">캐릭터 디자인</span><span class="proj-role">3D 모델링</span>
+            <span class="proj-role">텍스쳐링</span><span class="proj-role">1인 제작</span>
+          </div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">기업 프로젝트</div></div>
@@ -318,7 +372,7 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
         </div>
       </div>
       <div class="proj-media">
-        <div class="media-label">송암미술관 프로젝트 (7작)</div>
+        <div class="media-label">송암미술관 (7작)</div>
         <div class="vgrid-3">
           <div class="vcard-sm"><iframe src="https://www.youtube.com/embed/FqyQZvwgeN4" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">영상 source · 디자인</div><div class="vc-title">송암미술관 ①</div></div></div>
           <div class="vcard-sm"><iframe src="https://www.youtube.com/embed/qVDBc_A4tgw" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">스토리보드 · source 디자인</div><div class="vc-title">송암미술관 ②</div></div></div>
@@ -334,7 +388,7 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
         </div>
       </div>
       <div class="proj-media">
-        <div class="media-label">함안박물관 프로젝트</div>
+        <div class="media-label">함안박물관</div>
         <div style="max-width:420px">
           <div class="vcard-sm"><iframe src="https://www.youtube.com/embed/ZXQEvHQqptY" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">캐릭터 디자인 · 스토리보드</div><div class="vc-title">함안박물관</div></div></div>
         </div>
@@ -349,7 +403,11 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
           <h3 class="proj-title">나만 아는 이야기</h3>
           <div class="proj-period">2021.01 — 2021.12</div>
           <p class="proj-desc">청강대 애니메이션 전공 졸업작품. 3D 배경 디자인·모델링·클린업과 2D 캐릭터 애니메이팅을 동시에 담당한 하이브리드 프로젝트.</p>
-          <div class="proj-roles"><span class="proj-role">3D 배경 디자인</span><span class="proj-role">3D 모델링</span><span class="proj-role">클린업</span><span class="proj-role">2D 캐릭터 애니메이팅</span><span class="proj-role">대본</span><span class="proj-role">사운드 편집</span></div>
+          <div class="proj-roles">
+            <span class="proj-role">3D 배경 디자인</span><span class="proj-role">3D 모델링</span>
+            <span class="proj-role">클린업</span><span class="proj-role">2D 캐릭터 애니메이팅</span>
+            <span class="proj-role">대본</span><span class="proj-role">사운드 편집</span>
+          </div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">졸업작품</div></div>
@@ -368,11 +426,14 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
     <div class="project-page" id="p-art">
       <div class="proj-header">
         <div>
-          <div class="proj-category">Illustration · 외주 & 개인작</div>
-          <h3 class="proj-title">아트 & 외주</h3>
+          <div class="proj-category">Illustration · 외주 &amp; 개인작</div>
+          <h3 class="proj-title">아트 &amp; 외주</h3>
           <div class="proj-period">2022 — 2025</div>
           <p class="proj-desc">유튜브 영상에 삽입된 외주 일러스트 및 개인 작품. 소나무, 김팔팔, 서수 등 다양한 아티스트와의 협업 일러스트와 사이퍼즈 하랑 공모전 출품작, 개인 선화·채색 작품.</p>
-          <div class="proj-roles"><span class="proj-role">캐릭터 디자인</span><span class="proj-role">컨셉아트</span><span class="proj-role">외주 일러스트</span><span class="proj-role">선화</span><span class="proj-role">채색</span></div>
+          <div class="proj-roles">
+            <span class="proj-role">캐릭터 디자인</span><span class="proj-role">컨셉아트</span>
+            <span class="proj-role">외주 일러스트</span><span class="proj-role">선화</span><span class="proj-role">채색</span>
+          </div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">일러스트 · 외주</div></div>
@@ -382,36 +443,37 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
       <div class="proj-media">
         <div class="media-label">소나무 — 나의 마음을 담아</div>
         <div class="illust-video-pair">
-          <div class="illust-block"><img src="illust_sonamu.png" alt="소나무"/><div class="illust-caption">일러스트 · 소나무 — 나의 마음을 담아</div></div>
+          <div class="illust-block"><img src="/seeun648.github.io/illust_sonamu.png" alt="소나무 일러스트"/><div class="illust-caption">일러스트 · 소나무 — 나의 마음을 담아</div></div>
           <div><div class="vcard-sm"><iframe src="https://www.youtube.com/embed/ev7lvWxrzZU" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">일러스트 작업</div><div class="vc-title">소나무 — 나의 마음을 담아</div></div></div></div>
         </div>
       </div>
       <div class="proj-media">
         <div class="media-label">김팔팔 — 오르트구름</div>
         <div class="illust-video-pair">
-          <div class="illust-block"><img src="illust_palfal.jpg" alt="김팔팔"/><div class="illust-caption">일러스트 · 김팔팔 — 오르트구름</div></div>
+          <div class="illust-block"><img src="/seeun648.github.io/illust_palfal.jpg" alt="김팔팔 일러스트"/><div class="illust-caption">일러스트 · 김팔팔 — 오르트구름</div></div>
           <div><div class="vcard-sm"><iframe src="https://www.youtube.com/embed/pFcVgm2k79g" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">일러스트 작업</div><div class="vc-title">김팔팔 — 오르트구름</div></div></div></div>
         </div>
       </div>
       <div class="proj-media">
         <div class="media-label">서수 — Night Dancer</div>
         <div class="illust-video-pair">
-          <div class="illust-block"><img src="illust_seosoo.jpg" alt="서수"/><div class="illust-caption">일러스트 · 서수 — Night Dancer</div></div>
+          <div class="illust-block"><img src="/seeun648.github.io/illust_seosoo.jpg" alt="서수 일러스트"/><div class="illust-caption">일러스트 · 서수 — Night Dancer</div></div>
           <div><div class="vcard-sm"><iframe src="https://www.youtube.com/embed/CjQtQqgCfG8" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">일러스트 작업</div><div class="vc-title">서수 — Night Dancer</div></div></div></div>
         </div>
       </div>
       <div class="proj-media">
         <div class="media-label">사이퍼즈 하랑 공모전</div>
-        <div style="max-width:500px"><div class="illust-solo"><img src="illust_harang.png" alt="사이퍼즈 하랑"/></div><p class="video-caption" style="margin-top:.6rem">공모전 출품작 · 사이퍼즈 하랑 캐릭터 일러스트</p></div>
+        <div class="illust-solo"><img src="/seeun648.github.io/illust_harang.png" alt="사이퍼즈 하랑"/></div>
+        <p class="video-caption" style="margin-top:.6rem">공모전 출품작 · 사이퍼즈 하랑 캐릭터 일러스트</p>
       </div>
       <div class="proj-media">
         <div class="media-label">개인작</div>
         <div class="personal-grid">
-          <img src="illust_personal.png" alt="개인작 1"/>
-          <img src="illust_personal2.png" alt="개인작 2"/>
-          <img src="illust_personal3.png" alt="개인작 3"/>
-          <img src="illust_personal4.png" alt="개인작 4"/>
-          <img src="illust_personal5.png" alt="개인작 5"/>
+          <img src="/seeun648.github.io/illust_personal.png" alt="개인작 1"/>
+          <img src="/seeun648.github.io/illust_personal2.png" alt="개인작 2"/>
+          <img src="/seeun648.github.io/illust_personal3.png" alt="개인작 3"/>
+          <img src="/seeun648.github.io/illust_personal4.png" alt="개인작 4"/>
+          <img src="/seeun648.github.io/illust_personal5.png" alt="개인작 5"/>
         </div>
       </div>
     </div>
@@ -464,7 +526,7 @@ footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;just
 
 <footer>
   <div class="ft-l">이세은</div>
-  <div class="ft-c">© 2024 Lee Seeun · 2D/3D Animator & Artist</div>
+  <div class="ft-c">© 2024 Lee Seeun · 2D/3D Animator &amp; Artist</div>
   <div class="ft-nav"><a href="#hero">Top ↑</a><a href="#projects">Works</a><a href="#cta">Contact</a></div>
 </footer>
 
