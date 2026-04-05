@@ -8,35 +8,20 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ivory:#F0EAD6;
-  --ivory2:#E8E0CE;
-  --ivory3:#DDD5C0;
-  --cream:#FAF7F2;
-  --clay:#C4604A;
-  --clay2:#A84E3A;
-  --sage:#6B8C6E;
-  --sage2:#557058;
-  --peach:#E8A896;
-  --blush:#E8B4B8;
-  --ink:#231A10;
-  --ink2:#3D2E20;
-  --ink3:#5A4535;
-  --mist:#8C7A68;
-  --border:#D8CFBC;
-  --white:#FFFFFF;
+  --ivory:#F0EAD6;--ivory2:#E8E0CE;--ivory3:#DDD5C0;
+  --cream:#FAF7F2;--clay:#C4604A;--clay2:#A84E3A;
+  --sage:#6B8C6E;--sage2:#557058;--peach:#E8A896;
+  --blush:#E8B4B8;--ink:#231A10;--ink2:#3D2E20;
+  --ink3:#5A4535;--mist:#8C7A68;--border:#D8CFBC;--white:#FFFFFF;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* LOADER */
 #loader{position:fixed;inset:0;z-index:9999;background:var(--ivory);display:flex;align-items:center;justify-content:center;transition:opacity .7s,visibility .7s}
 #loader.hide{opacity:0;visibility:hidden;pointer-events:none}
 .loader-name{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);letter-spacing:.15em;text-align:center;margin-bottom:.4rem}
 .loader-sub{font-size:.72rem;color:var(--mist);letter-spacing:.28em;text-transform:uppercase;text-align:center}
 .loader-bar{width:0;height:2px;background:linear-gradient(90deg,var(--clay),var(--peach),var(--sage));margin:1.4rem auto 0;animation:barGrow 1.1s ease forwards .2s;border-radius:2px}
 @keyframes barGrow{to{width:180px}}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
 nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:900;color:var(--ink);letter-spacing:.1em}
@@ -45,8 +30,6 @@ nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-
 .nav-menu a:hover{color:var(--clay)}
 .nav-cta-btn{background:var(--clay);color:var(--white)!important;padding:7px 18px;border-radius:50px;font-weight:900!important;transition:background .2s,transform .15s!important}
 .nav-cta-btn:hover{background:var(--clay2)!important;transform:translateY(-1px)}
-
-/* HERO */
 #hero{min-height:100vh;background:var(--ivory);display:flex;align-items:center;justify-content:center;padding:80px 5% 80px;position:relative;overflow:hidden}
 .hero-deco{position:absolute;pointer-events:none}
 .hero-deco-1{width:420px;height:420px;border-radius:50%;background:var(--peach);opacity:.25;top:-80px;right:-60px;filter:blur(60px)}
@@ -59,26 +42,24 @@ nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-
 .eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--clay)}
 .eyebrow-text{font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--clay)}
 .hero-name{font-family:'Noto Serif KR',serif;font-size:clamp(3.8rem,8vw,7rem);font-weight:900;line-height:.92;color:var(--ink);letter-spacing:-.02em;margin-bottom:.6rem}
-.hero-name-en{font-size:clamp(.9rem,1.8vw,1.3rem);font-weight:300;letter-spacing:.36em;color:var(--mist);font-family:'Noto Sans KR',sans-serif;margin-bottom:2rem;display:block}
+.hero-name-en{font-size:clamp(.9rem,1.8vw,1.3rem);font-weight:300;letter-spacing:.36em;color:var(--mist);margin-bottom:2rem;display:block}
 .hero-desc{font-size:.92rem;color:var(--ink3);line-height:2;font-weight:400;max-width:460px;margin-bottom:2rem}
 .hero-desc strong{color:var(--clay);font-weight:700}
 .hero-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2.2rem}
 .hchip{border:1.5px solid var(--border);color:var(--ink3);font-size:.68rem;font-weight:600;padding:4px 13px;border-radius:50px;background:rgba(255,255,255,.6);letter-spacing:.04em;transition:all .2s}
-.hchip:hover{border-color:var(--clay);color:var(--clay);background:rgba(196,96,74,.06)}
+.hchip:hover{border-color:var(--clay);color:var(--clay)}
 .hero-btns{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
-.btn-hero-main{background:var(--clay);color:var(--white);font-size:.82rem;font-weight:900;padding:13px 28px;border-radius:50px;text-decoration:none;letter-spacing:.08em;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 20px rgba(196,96,74,.25)}
-.btn-hero-main:hover{background:var(--clay2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(196,96,74,.35)}
+.btn-hero-main{background:var(--clay);color:var(--white);font-size:.82rem;font-weight:900;padding:13px 28px;border-radius:50px;text-decoration:none;letter-spacing:.08em;transition:background .2s,transform .15s;box-shadow:0 4px 20px rgba(196,96,74,.25)}
+.btn-hero-main:hover{background:var(--clay2);transform:translateY(-2px)}
 .btn-hero-ghost{color:var(--ink2);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--border);padding-bottom:2px;letter-spacing:.04em;transition:color .2s,border-color .2s}
 .btn-hero-ghost:hover{color:var(--clay);border-color:var(--clay)}
-
-/* HERO CARD */
 .hero-card{background:rgba(255,255,255,.7);border:1.5px solid var(--border);border-radius:20px;padding:2rem;backdrop-filter:blur(12px);box-shadow:0 8px 40px rgba(100,70,40,.08)}
 .hc-label{font-size:.62rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--mist);margin-bottom:1.4rem}
 .hc-strengths{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.6rem}
 .hc-str{display:flex;align-items:center;gap:.9rem}
 .hc-str-dot{width:6px;height:6px;border-radius:50%;background:var(--clay);flex-shrink:0}
 .hc-str-text{font-size:.8rem;color:var(--ink2);line-height:1.4}
-.hc-str-text strong{display:inline;color:var(--ink);font-weight:700}
+.hc-str-text strong{color:var(--ink);font-weight:700}
 .hc-divider{height:1px;background:var(--border);margin:1.4rem 0}
 .hc-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .hc-stat-n{font-family:'Noto Serif KR',serif;font-size:1.8rem;font-weight:900;color:var(--clay);line-height:1}
@@ -86,8 +67,6 @@ nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-
 .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--mist);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase}
 .scroll-cue::after{content:'';width:1px;height:32px;background:linear-gradient(to bottom,var(--clay),transparent);animation:scrollPulse 2s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
-
-/* STRENGTH STRIP */
 #strength{background:var(--ink);padding:60px 5%}
 .str-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05)}
 .str-item{background:var(--ink);padding:2rem 1.6rem;text-align:center;transition:background .3s;position:relative;overflow:hidden}
@@ -97,8 +76,6 @@ nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-
 .str-num{font-family:'Noto Serif KR',serif;font-size:1.8rem;font-weight:900;color:var(--clay);line-height:1;margin-bottom:.5rem}
 .str-name{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.06em;margin-bottom:.3rem}
 .str-desc{font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.6}
-
-/* PROJECTS */
 #projects{background:var(--cream);padding:100px 5%}
 .si{max-width:1100px;margin:0 auto}
 .sec-label{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
@@ -125,6 +102,15 @@ nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-
 .proj-meta-item{margin-bottom:.9rem}
 .proj-meta-label{font-size:.6rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-bottom:.2rem}
 .proj-meta-val{font-size:.82rem;color:var(--ink);font-weight:600}
+
+/* 편집 포인트 박스 */
+.edit-point{background:rgba(196,96,74,.05);border:1.5px solid rgba(196,96,74,.15);border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:2rem}
+.edit-point-label{font-size:.6rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.edit-point-label::before{content:'✦';font-size:.65rem}
+.edit-point-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.ep-tag{background:rgba(255,255,255,.8);border:1px solid rgba(196,96,74,.2);color:var(--ink3);font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:50px}
+.ep-desc{font-size:.82rem;color:var(--ink3);line-height:1.8;margin-top:.7rem}
+
 .proj-media{margin-bottom:2.5rem}
 .media-label{font-size:.63rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
 .media-label::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -151,8 +137,6 @@ nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-
 .vc-body{padding:.7rem .9rem .9rem}
 .vc-role{font-size:.63rem;font-weight:700;letter-spacing:.08em;color:var(--clay);margin-bottom:.25rem;text-transform:uppercase}
 .vc-title{font-size:.8rem;font-weight:700;color:var(--ink);line-height:1.3}
-
-/* ABOUT */
 #about{background:var(--ivory);padding:100px 5%}
 .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:5rem;align-items:start}
 .about-intro{font-family:'Noto Serif KR',serif;font-size:clamp(1.2rem,2vw,1.55rem);font-weight:600;line-height:1.75;color:var(--ink);margin-bottom:1.8rem;letter-spacing:-.01em}
@@ -179,8 +163,6 @@ nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-
 .ci-badge{display:inline-block;font-size:.58rem;font-weight:900;background:var(--clay);color:var(--white);padding:1px 7px;border-radius:50px;letter-spacing:.06em;vertical-align:middle;margin-left:.4rem}
 .design-badge{background:var(--clay)}
 .edu-badge{background:var(--sage)}
-
-/* CTA */
 #cta{background:var(--ink);padding:120px 5%;text-align:center}
 .cta-pre{font-size:.63rem;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin-bottom:1.2rem}
 .cta-h{font-family:'Noto Serif KR',serif;font-size:clamp(2rem,4vw,3.8rem);font-weight:900;color:var(--ivory);line-height:1.15;margin-bottom:1.1rem;letter-spacing:-.01em}
@@ -196,24 +178,17 @@ nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-
 .cta-c-ic{width:36px;height:36px;border-radius:50%;background:rgba(196,96,74,.15);display:flex;align-items:center;justify-content:center;font-size:.85rem}
 .cta-c-info{font-size:.82rem;color:rgba(240,234,214,.5)}
 .cta-c-info strong{display:block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:2px;opacity:.8}
-
-/* FOOTER */
 footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .ft-l{font-family:'Noto Serif KR',serif;font-size:.88rem;font-weight:900;color:var(--clay);letter-spacing:.1em}
 .ft-c{font-size:.7rem;color:rgba(255,255,255,.18);letter-spacing:.06em}
 .ft-nav{display:flex;gap:1.5rem}
 .ft-nav a{font-size:.7rem;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s}
 .ft-nav a:hover{color:var(--clay)}
-
-/* ANIMATION */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-
-/* RESPONSIVE */
 @media(max-width:960px){
-  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
-  .hero-card{display:none}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}.hero-card{display:none}
   .str-grid{grid-template-columns:repeat(2,1fr)}
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .proj-header{grid-template-columns:1fr;gap:1.5rem}
@@ -224,24 +199,14 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
   .nav-menu li:not(:last-child){display:none}
 }
 @media(max-width:600px){
-  .str-grid{grid-template-columns:1fr 1fr}
-  .personal-grid{grid-template-columns:1fr}
-  .project-nav{gap:.3rem}
-  .pnav-btn{font-size:.65rem;padding:.4rem .7rem}
+  .str-grid{grid-template-columns:1fr 1fr}.personal-grid{grid-template-columns:1fr}
+  .project-nav{gap:.3rem}.pnav-btn{font-size:.65rem;padding:.4rem .7rem}
   .sb-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-
-<div id="loader">
-  <div>
-    <div class="loader-name">이세은</div>
-    <div class="loader-sub">Animator · Artist · Creator</div>
-    <div class="loader-bar"></div>
-  </div>
-</div>
-
+<div id="loader"><div><div class="loader-name">이세은</div><div class="loader-sub">Animator · Artist · Creator</div><div class="loader-bar"></div></div></div>
 <nav id="nav">
   <div class="nav-logo">이세은</div>
   <ul class="nav-menu">
@@ -250,13 +215,9 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
     <li><a href="#cta" class="nav-cta-btn">문의하기</a></li>
   </ul>
 </nav>
-
 <section id="hero">
-  <div class="hero-deco hero-deco-1"></div>
-  <div class="hero-deco hero-deco-2"></div>
-  <div class="hero-deco hero-deco-3"></div>
-  <div class="hero-deco-circle1"></div>
-  <div class="hero-deco-circle2"></div>
+  <div class="hero-deco hero-deco-1"></div><div class="hero-deco hero-deco-2"></div><div class="hero-deco hero-deco-3"></div>
+  <div class="hero-deco-circle1"></div><div class="hero-deco-circle2"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow reveal"><div class="eyebrow-dot"></div><div class="eyebrow-text">2D · 3D · Motion · XR</div></div>
@@ -264,12 +225,8 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
       <span class="hero-name-en reveal d2">Lee Seeun</span>
       <p class="hero-desc reveal d3">스토리보드 한 장부터 최종 편집까지 —<br/><strong>기획·제작·연출 전 과정</strong>을 직접 소화하는<br/>2D/3D 올라운드 애니메이터 &amp; 아티스트</p>
       <div class="hero-chips reveal d3">
-        <span class="hchip">2D Animation</span>
-        <span class="hchip">3D Modeling</span>
-        <span class="hchip">Character Design</span>
-        <span class="hchip">Storyboard</span>
-        <span class="hchip">Motion Graphic</span>
-        <span class="hchip">XR Art</span>
+        <span class="hchip">2D Animation</span><span class="hchip">3D Modeling</span><span class="hchip">Character Design</span>
+        <span class="hchip">Storyboard</span><span class="hchip">Motion Graphic</span><span class="hchip">XR Art</span>
       </div>
       <div class="hero-btns reveal d4">
         <a href="#projects" class="btn-hero-main">Works 보기</a>
@@ -279,7 +236,7 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
     <div class="hero-card reveal d2">
       <div class="hc-label">Strengths</div>
       <div class="hc-strengths">
-        <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>적응력</strong> — 새로운 환경과 요구에 빠르게 녹아드는 능력</div></div>
+        <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>적응력</strong> — 새로운 환경에 빠르게 녹아드는 능력</div></div>
         <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>친화력</strong> — 팀과 클라이언트 모두와 자연스러운 소통</div></div>
         <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>문제해결력</strong> — 막히는 상황에서도 방법을 찾는 실행력</div></div>
         <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>유연한 대처력</strong> — 변화하는 방향에도 흔들리지 않는 유연함</div></div>
@@ -340,6 +297,19 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-meta-item"><div class="proj-meta-label">Period</div><div class="proj-meta-val">약 5개월</div></div>
         </div>
       </div>
+      <div class="edit-point">
+        <div class="edit-point-label">작업 포인트</div>
+        <div class="edit-point-list">
+          <span class="ep-tag">미디어아트 재해석</span>
+          <span class="ep-tag">문화재 시각화</span>
+          <span class="ep-tag">XR 최적화</span>
+          <span class="ep-tag">역사 스토리텔링</span>
+        </div>
+        <p class="ep-desc">
+          <strong>송암미술관</strong> — 미술관이 보관 중인 유물들의 기원과 의미를 미디어아트로 재해석. 역사적 맥락을 시각 언어로 풀어내는 스토리보드 설계에 집중했습니다.<br/><br/>
+          <strong>함안박물관</strong> — 함안 지역의 근간인 아라가야를 배경으로, 역사를 재해석한 뮤지컬 형식의 상영작 제작. 캐릭터 디자인과 스토리보드를 담당하며 역사 콘텐츠의 생동감 있는 연출을 구현했습니다.
+        </p>
+      </div>
       <div class="proj-media">
         <div class="media-label">송암미술관 (7작)</div>
         <div class="vgrid-3">
@@ -371,7 +341,7 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-category">Company · (주)아이코닉무브먼트</div>
           <h3 class="proj-title">아이코닉무브먼트<br/>2D 주임</h3>
           <div class="proj-period">2022.04 — 2023.01</div>
-          <p class="proj-desc">제작 1팀 총괄 주임으로 2D 애니메이션, NFT 일러스트, 모션그래픽 전반을 리딩. 존중탐험대 시즌3 전체 캐릭터 시트 및 스토리보드, 에펙 완성. k3k 1인 제작, 원소주 후보정, 영도 프로젝션 맵핑 애니메이팅 등 다양한 포맷의 프로젝트를 진행했습니다.</p>
+          <p class="proj-desc">제작 1팀 총괄 주임으로 2D 애니메이션, NFT 일러스트, 모션그래픽 전반을 리딩.</p>
           <div class="proj-roles">
             <span class="proj-role">팀 총괄</span><span class="proj-role">캐릭터 시트</span>
             <span class="proj-role">스토리보드</span><span class="proj-role">애니메이팅</span>
@@ -384,9 +354,25 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-meta-item"><div class="proj-meta-label">Period</div><div class="proj-meta-val">약 9개월</div></div>
         </div>
       </div>
+      <div class="edit-point">
+        <div class="edit-point-label">작업 포인트</div>
+        <div class="edit-point-list">
+          <span class="ep-tag">2D 캐릭터 애니메이션</span>
+          <span class="ep-tag">3D+2D 합성</span>
+          <span class="ep-tag">프로젝션 맵핑</span>
+          <span class="ep-tag">1인 완성</span>
+          <span class="ep-tag">팀 리딩</span>
+        </div>
+        <p class="ep-desc">
+          <strong>존중탐험대</strong> — 2D 기반 애니메이션으로, 친구들과 사이좋게 지내자는 부산광역시교육청의 기획에 맞춰 캐릭터 시트·스토리보드·애니메이팅·편집 전 과정을 담당했습니다.<br/><br/>
+          <strong>원소주</strong> — 3D+2D를 활용해 전세계적으로 다양하게 사랑받는 원소주의 모습을 표현한 웹사이트 게시용 영상. 후보정과 2D 애니메이션 요소를 결합했습니다.<br/><br/>
+          <strong>영도 프로젝션 맵핑</strong> — 바다에 쓰레기를 버리지 말자는 환경 캠페인으로, 부산 영도에서 실제 건물 외벽에 프로젝션 맵핑 애니메이션을 진행했습니다.
+        </p>
+      </div>
       <div class="proj-media">
         <div class="media-label">k3k — 1인 제작</div>
         <div class="video-wrap"><iframe src="https://www.youtube.com/embed/rnEUSM1QHWE" allowfullscreen loading="lazy"></iframe></div>
+        <p class="video-caption">기획·스토리보드·애니메이팅·편집 전 과정 1인 완성</p>
       </div>
       <div class="proj-media">
         <div class="media-label">존중탐험대 시즌3</div>
@@ -405,7 +391,7 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
       </div>
     </div>
 
-    <!-- 졸업작품 -->
+    <!-- 나만 아는 이야기 -->
     <div class="project-page" id="p-grad">
       <div class="proj-header">
         <div>
@@ -425,9 +411,20 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-meta-item"><div class="proj-meta-label">Period</div><div class="proj-meta-val">약 12개월</div></div>
         </div>
       </div>
+      <div class="edit-point">
+        <div class="edit-point-label">작업 포인트</div>
+        <div class="edit-point-list">
+          <span class="ep-tag">2D + 3D 하이브리드</span>
+          <span class="ep-tag">감성 연출</span>
+          <span class="ep-tag">사운드 편집</span>
+          <span class="ep-tag">서사 기획</span>
+        </div>
+        <p class="ep-desc">혼란스러움과 애틋함이 맞물린 두 소녀의 이야기. 3D로 구축한 배경 공간 위에 2D 캐릭터 애니메이션을 레이어드하는 하이브리드 방식으로, 감정선의 흐름을 섬세하게 연출하는 데 집중했습니다.</p>
+      </div>
       <div class="proj-media">
         <div class="media-label">Animation</div>
         <div class="video-wrap"><iframe src="https://www.youtube.com/embed/hi-iNtaut6o" allowfullscreen loading="lazy"></iframe></div>
+        <p class="video-caption">단편 애니메이션 '나만 아는 이야기' — 청강문화산업대학교 졸업작품</p>
       </div>
     </div>
 
@@ -453,7 +450,7 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
         <div class="media-label">Animation</div>
         <div style="text-align:center;padding:3rem 2rem;background:var(--ivory);border-radius:16px;border:1.5px solid var(--border)">
           <p style="font-size:.95rem;color:var(--ink3);margin-bottom:1.5rem">Wix에서 원본 영상을 확인하세요</p>
-          <a href="https://seeun648.wixsite.com/website/letsgotina?wix-vod-video-id=e381dc80fa7940deaa070605ca6c6fae&wix-vod-comp-id=comp-l11z6pes" target="_blank" style="display:inline-block;background:var(--clay);color:var(--white);font-size:.82rem;font-weight:900;padding:12px 28px;border-radius:50px;text-decoration:none;letter-spacing:.08em;transition:background .2s">원본 영상 보기 →</a>
+          <a href="https://seeun648.wixsite.com/website/letsgotina?wix-vod-video-id=e381dc80fa7940deaa070605ca6c6fae&wix-vod-comp-id=comp-l11z6pes" target="_blank" style="display:inline-block;background:var(--clay);color:var(--white);font-size:.82rem;font-weight:900;padding:12px 28px;border-radius:50px;text-decoration:none">원본 영상 보기 →</a>
         </div>
       </div>
     </div>
