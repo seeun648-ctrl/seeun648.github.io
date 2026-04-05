@@ -8,205 +8,247 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ivory:#F0EAD6;--ivory2:#E8E0CE;--ivory3:#DDD5C0;
-  --cream:#FAF7F2;--clay:#C4604A;--clay2:#A84E3A;
-  --sage:#6B8C6E;--sage2:#557058;--peach:#E8A896;
-  --blush:#E8B4B8;--ink:#231A10;--ink2:#3D2E20;
-  --ink3:#5A4535;--mist:#8C7A68;--border:#D8CFBC;--white:#FFFFFF;
+  --ink:#1A1410;--ink2:#2E2219;--ink3:#4A3828;
+  --sand:#F5F0E8;--cream:#FAF8F4;--warm:#FFFDF9;
+  --taupe:#C8B89A;--gold:#B07D5B;--gold2:#8A5E3C;
+  --mist:#9E8C78;--border:#E0D6C8;--white:#FFFFFF;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-#loader{position:fixed;inset:0;z-index:9999;background:var(--ivory);display:flex;align-items:center;justify-content:center;transition:opacity .7s,visibility .7s}
-#loader.hide{opacity:0;visibility:hidden;pointer-events:none}
-.loader-name{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;color:var(--ink);letter-spacing:.15em;text-align:center;margin-bottom:.4rem}
-.loader-sub{font-size:.72rem;color:var(--mist);letter-spacing:.28em;text-transform:uppercase;text-align:center}
-.loader-bar{width:0;height:2px;background:linear-gradient(90deg,var(--clay),var(--peach),var(--sage));margin:1.4rem auto 0;animation:barGrow 1.1s ease forwards .2s;border-radius:2px}
-@keyframes barGrow{to{width:180px}}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
-nav.scrolled{background:rgba(240,234,214,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:900;color:var(--ink);letter-spacing:.1em}
-.nav-menu{display:flex;gap:2rem;list-style:none;align-items:center}
-.nav-menu a{font-size:.72rem;font-weight:700;color:var(--ink2);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
-.nav-menu a:hover{color:var(--clay)}
-.nav-cta-btn{background:var(--clay);color:var(--white)!important;padding:7px 18px;border-radius:50px;font-weight:900!important;transition:background .2s,transform .15s!important}
-.nav-cta-btn:hover{background:var(--clay2)!important;transform:translateY(-1px)}
-#hero{min-height:100vh;background:var(--ivory);display:flex;align-items:center;justify-content:center;padding:80px 5% 80px;position:relative;overflow:hidden}
-.hero-deco{position:absolute;pointer-events:none}
-.hero-deco-1{width:420px;height:420px;border-radius:50%;background:var(--peach);opacity:.25;top:-80px;right:-60px;filter:blur(60px)}
-.hero-deco-2{width:300px;height:300px;border-radius:50%;background:var(--sage);opacity:.15;bottom:-60px;left:10%;filter:blur(80px)}
-.hero-deco-3{width:180px;height:180px;border-radius:50%;background:var(--clay);opacity:.12;top:30%;left:-40px;filter:blur(50px)}
-.hero-deco-circle1{position:absolute;width:320px;height:320px;border-radius:50%;border:1px solid rgba(196,96,74,.12);right:8%;top:50%;transform:translateY(-50%)}
-.hero-deco-circle2{position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(196,96,74,.06);right:3%;top:50%;transform:translateY(-50%)}
-.hero-inner{position:relative;z-index:2;max-width:1100px;width:100%;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center}
-.hero-eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1.6rem}
-.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--clay)}
-.eyebrow-text{font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--clay)}
-.hero-name{font-family:'Noto Serif KR',serif;font-size:clamp(3.8rem,8vw,7rem);font-weight:900;line-height:.92;color:var(--ink);letter-spacing:-.02em;margin-bottom:.6rem}
-.hero-name-en{font-size:clamp(.9rem,1.8vw,1.3rem);font-weight:300;letter-spacing:.36em;color:var(--mist);margin-bottom:2rem;display:block}
-.hero-desc{font-size:.92rem;color:var(--ink3);line-height:2;font-weight:400;max-width:460px;margin-bottom:2rem}
-.hero-desc strong{color:var(--clay);font-weight:700}
-.hero-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2.2rem}
-.hchip{border:1.5px solid var(--border);color:var(--ink3);font-size:.68rem;font-weight:600;padding:4px 13px;border-radius:50px;background:rgba(255,255,255,.6);letter-spacing:.04em;transition:all .2s}
-.hchip:hover{border-color:var(--clay);color:var(--clay)}
-.hero-btns{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
-.btn-hero-main{background:var(--clay);color:var(--white);font-size:.82rem;font-weight:900;padding:13px 28px;border-radius:50px;text-decoration:none;letter-spacing:.08em;transition:background .2s,transform .15s;box-shadow:0 4px 20px rgba(196,96,74,.25)}
-.btn-hero-main:hover{background:var(--clay2);transform:translateY(-2px)}
-.btn-hero-ghost{color:var(--ink2);font-size:.82rem;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--border);padding-bottom:2px;letter-spacing:.04em;transition:color .2s,border-color .2s}
-.btn-hero-ghost:hover{color:var(--clay);border-color:var(--clay)}
-.hero-card{background:rgba(255,255,255,.7);border:1.5px solid var(--border);border-radius:20px;padding:2rem;backdrop-filter:blur(12px);box-shadow:0 8px 40px rgba(100,70,40,.08)}
-.hc-label{font-size:.62rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--mist);margin-bottom:1.4rem}
-.hc-strengths{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.6rem}
+#loader{position:fixed;inset:0;z-index:9999;background:var(--ink);display:flex;align-items:center;justify-content:center;transition:opacity .7s,visibility .7s}
+#loader.hide{opacity:0;visibility:hidden}
+.loader-name{font-family:'Noto Serif KR',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:var(--warm);letter-spacing:.2em;margin-bottom:.4rem;text-align:center}
+.loader-sub{font-size:.72rem;color:var(--taupe);letter-spacing:.3em;text-transform:uppercase;opacity:.6;text-align:center}
+.loader-line{width:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.2rem auto 0;animation:lineGrow 1.2s ease forwards .3s}
+@keyframes lineGrow{to{width:200px}}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.scrolled{background:rgba(250,248,244,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:900;color:var(--warm);letter-spacing:.12em;transition:color .4s}
+nav.scrolled .nav-logo{color:var(--ink)}
+.nav-menu{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-menu a{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.55);text-decoration:none;letter-spacing:.14em;text-transform:uppercase;transition:color .3s}
+nav.scrolled .nav-menu a{color:var(--ink3)}
+.nav-menu a:hover{color:var(--gold)!important}
+.nav-cta-btn{background:var(--gold);color:var(--white)!important;padding:7px 18px;border-radius:4px;font-weight:900!important;letter-spacing:.1em!important;transition:background .2s!important}
+.nav-cta-btn:hover{background:var(--gold2)!important}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--ink);display:flex;align-items:center;justify-content:center;padding:80px 5% 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(176,125,91,.08) 0%,transparent 70%)}
+.hero-grain{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+.hero-line-v{position:absolute;top:0;bottom:0;left:5%;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,184,154,.15),transparent)}
+.hero-inner{position:relative;z-index:2;max-width:1100px;width:100%;display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:center}
+.hero-eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1.8rem}
+.eyebrow-line{width:32px;height:1px;background:var(--gold)}
+.eyebrow-text{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.hero-name{font-family:'Noto Serif KR',serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:900;line-height:.95;color:var(--warm);letter-spacing:-.01em;margin-bottom:.5rem}
+.hero-name-en{font-size:clamp(1rem,2vw,1.6rem);font-weight:300;letter-spacing:.3em;color:rgba(255,255,255,.3);font-family:'Noto Sans KR',sans-serif;margin-bottom:2rem;display:block}
+.hero-desc{font-size:.95rem;color:rgba(255,255,255,.5);line-height:2;font-weight:300;max-width:460px;margin-bottom:2.4rem}
+.hero-desc strong{color:var(--gold);font-weight:700}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.4rem}
+.hchip{border:1px solid rgba(200,184,154,.2);color:rgba(255,255,255,.45);font-size:.68rem;font-weight:500;padding:4px 12px;border-radius:2px;letter-spacing:.06em}
+.hero-btns{display:flex;gap:1rem;align-items:center}
+.btn-hero-main{background:var(--gold);color:var(--white);font-size:.82rem;font-weight:900;padding:13px 30px;border-radius:4px;text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .15s}
+.btn-hero-main:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-hero-ghost{color:rgba(255,255,255,.45);font-size:.82rem;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;letter-spacing:.04em;transition:color .2s,border-color .2s}
+.btn-hero-ghost:hover{color:var(--gold);border-color:var(--gold)}
+.hero-card{background:rgba(255,255,255,.03);border:1px solid rgba(200,184,154,.15);border-radius:2px;padding:2rem}
+.hc-label{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);opacity:.6;margin-bottom:1.6rem}
+.hc-strengths{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.8rem}
 .hc-str{display:flex;align-items:center;gap:.9rem}
-.hc-str-dot{width:6px;height:6px;border-radius:50%;background:var(--clay);flex-shrink:0}
-.hc-str-text{font-size:.8rem;color:var(--ink2);line-height:1.4}
-.hc-str-text strong{color:var(--ink);font-weight:700}
-.hc-divider{height:1px;background:var(--border);margin:1.4rem 0}
+.hc-str-icon{width:32px;height:32px;border:1px solid rgba(200,184,154,.15);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.hc-str-text{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.4}
+.hc-str-text strong{display:block;color:rgba(255,255,255,.8);font-weight:700;font-size:.78rem;margin-bottom:1px}
+.hc-divider{height:1px;background:rgba(200,184,154,.1);margin:1.4rem 0}
 .hc-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.hc-stat-n{font-family:'Noto Serif KR',serif;font-size:1.8rem;font-weight:900;color:var(--clay);line-height:1}
-.hc-stat-l{font-size:.62rem;color:var(--mist);letter-spacing:.08em;margin-top:3px}
-.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--mist);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase}
-.scroll-cue::after{content:'';width:1px;height:32px;background:linear-gradient(to bottom,var(--clay),transparent);animation:scrollPulse 2s ease-in-out infinite}
+.hc-stat-n{font-family:'Noto Serif KR',serif;font-size:2rem;font-weight:900;color:var(--warm);line-height:1}
+.hc-stat-l{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:.08em;margin-top:3px}
+.scroll-cue{position:absolute;bottom:2.5rem;left:5%;display:flex;align-items:center;gap:.8rem;color:rgba(255,255,255,.2);font-size:.65rem;letter-spacing:.16em;text-transform:uppercase}
+.scroll-cue::before{content:'';width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
-#strength{background:var(--ink);padding:60px 5%}
-.str-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05)}
-.str-item{background:var(--ink);padding:2rem 1.6rem;text-align:center;transition:background .3s;position:relative;overflow:hidden}
-.str-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--clay),var(--peach));transform:scaleX(0);transition:transform .3s;transform-origin:left}
-.str-item:hover::before{transform:scaleX(1)}
-.str-item:hover{background:#2A1F14}
-.str-num{font-family:'Noto Serif KR',serif;font-size:1.8rem;font-weight:900;color:var(--clay);line-height:1;margin-bottom:.5rem}
-.str-name{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.06em;margin-bottom:.3rem}
-.str-desc{font-size:.68rem;color:rgba(255,255,255,.35);line-height:1.6}
-#projects{background:var(--cream);padding:100px 5%}
+
+section{padding:100px 5%}
 .si{max-width:1100px;margin:0 auto}
 .sec-label{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
-.sec-label-dot{width:8px;height:8px;border-radius:50%;background:var(--clay)}
-.sec-label-text{font-size:.65rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--clay)}
+.sec-label-line{width:24px;height:1px;background:var(--gold)}
+.sec-label-text{font-size:.65rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .sec-title{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-.01em}
 .sec-sub{font-size:.88rem;color:var(--mist);margin-top:.6rem;line-height:1.8}
-.sec-head{margin-bottom:3rem}
-.project-nav{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1.5px solid var(--border)}
-.pnav-btn{font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--mist);background:none;border:1.5px solid transparent;cursor:pointer;padding:.45rem 1rem;border-radius:50px;transition:all .2s}
-.pnav-btn.active{color:var(--clay);border-color:var(--clay);background:rgba(196,96,74,.06)}
-.pnav-btn:hover:not(.active){color:var(--ink);border-color:var(--border)}
+.sec-head{margin-bottom:3.5rem}
+
+/* STRENGTH STRIP */
+#strength{background:var(--ink);padding:70px 5%}
+.str-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,184,154,.1)}
+.str-item{background:var(--ink);padding:2rem 1.4rem;text-align:center;transition:background .3s}
+.str-item:hover{background:#231810}
+.str-num{font-family:'Noto Serif KR',serif;font-size:2rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:.5rem}
+.str-name{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.08em;margin-bottom:.3rem}
+.str-desc{font-size:.68rem;color:rgba(255,255,255,.3);line-height:1.6}
+
+/* PROJECT */
+#projects{background:var(--cream);padding:100px 5%}
+.project-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem;border-bottom:1px solid var(--border);padding-bottom:1.5rem}
+.pnav-btn{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mist);background:none;border:none;cursor:pointer;padding:.5rem .9rem;border-radius:2px;transition:all .2s;border-bottom:2px solid transparent}
+.pnav-btn.active{color:var(--ink);border-bottom-color:var(--gold)}
+.pnav-btn:hover{color:var(--ink)}
 .project-page{display:none;animation:fadeUp .4s ease}
 .project-page.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.proj-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;margin-bottom:3rem;padding-bottom:2.5rem;border-bottom:1.5px solid var(--border)}
-.proj-category{font-size:.63rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:.6rem}
-.proj-title{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;color:var(--ink);line-height:1.1;margin-bottom:.7rem;letter-spacing:-.01em}
-.proj-period{font-size:.74rem;color:var(--mist);font-weight:500;margin-bottom:1.1rem}
-.proj-desc{font-size:.87rem;color:var(--ink3);line-height:1.95;max-width:580px}
-.proj-roles{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.3rem}
-.proj-role{background:var(--ivory);border:1.5px solid var(--border);color:var(--ink3);font-size:.68rem;font-weight:700;padding:4px 12px;border-radius:50px;letter-spacing:.04em}
-.proj-meta{min-width:170px}
-.proj-meta-item{margin-bottom:.9rem}
-.proj-meta-label{font-size:.6rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-bottom:.2rem}
-.proj-meta-val{font-size:.82rem;color:var(--ink);font-weight:600}
-
-/* 편집 포인트 박스 */
-.edit-point{background:rgba(196,96,74,.05);border:1.5px solid rgba(196,96,74,.15);border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:2rem}
-.edit-point-label{font-size:.6rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
-.edit-point-label::before{content:'✦';font-size:.65rem}
-.edit-point-list{display:flex;flex-wrap:wrap;gap:.5rem}
-.ep-tag{background:rgba(255,255,255,.8);border:1px solid rgba(196,96,74,.2);color:var(--ink3);font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:50px}
-.ep-desc{font-size:.82rem;color:var(--ink3);line-height:1.8;margin-top:.7rem}
-
+.proj-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+.proj-category{font-size:.65rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.proj-title{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;color:var(--ink);line-height:1.1;margin-bottom:.8rem;letter-spacing:-.01em}
+.proj-period{font-size:.75rem;color:var(--mist);font-weight:500;margin-bottom:1.2rem}
+.proj-desc{font-size:.88rem;color:var(--ink3);line-height:1.9;max-width:580px}
+.proj-roles{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.proj-role{background:var(--sand);border:1px solid var(--border);color:var(--ink3);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:2px;letter-spacing:.04em}
+.proj-meta{min-width:180px}
+.proj-meta-item{margin-bottom:1rem}
+.proj-meta-label{font-size:.62rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin-bottom:.25rem}
+.proj-meta-val{font-size:.82rem;color:var(--ink);font-weight:500}
 .proj-media{margin-bottom:2.5rem}
-.media-label{font-size:.63rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
+.media-label{font-size:.65rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem}
 .media-label::after{content:'';flex:1;height:1px;background:var(--border)}
-.video-wrap{border-radius:12px;overflow:hidden;background:var(--ink)}
+.video-wrap{border-radius:4px;overflow:hidden;background:var(--ink)}
 .video-wrap iframe,.video-wrap video{width:100%;aspect-ratio:16/9;display:block;border:none}
 .video-caption{font-size:.72rem;color:var(--mist);margin-top:.6rem;font-style:italic}
-.sb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.sb-card{background:var(--ivory);border:1.5px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.sb-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(100,70,40,.1)}
-.sb-card img{width:100%;display:block;object-fit:cover}
-.sb-card-info{padding:.6rem .9rem;font-size:.7rem;color:var(--mist)}
+
+/* ARCHIVE CARDS */
+.archive-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:2rem}
+.archive-card{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:1.6rem;display:flex;flex-direction:column;gap:.5rem}
+.archive-card-icon{font-size:1.8rem}
+.archive-card-label{font-size:.62rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.archive-card-title{font-family:'Noto Serif KR',serif;font-size:.92rem;font-weight:700;color:var(--ink);line-height:1.3}
+.archive-card-desc{font-size:.78rem;color:var(--mist);line-height:1.7}
+.archive-note{background:var(--sand);border:1px solid var(--border);border-radius:6px;padding:1.2rem 1.4rem;font-size:.8rem;color:var(--mist);line-height:1.8;font-style:italic}
+
+/* ILLUST / VIDEO */
 .illust-video-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;align-items:start}
-.illust-block img{width:100%;border-radius:12px;display:block;border:1.5px solid var(--border);object-fit:contain;max-height:420px}
-.illust-caption{font-size:.72rem;color:var(--mist);margin-top:.5rem;font-style:italic}
-.illust-solo img{width:100%;border-radius:12px;display:block;border:1.5px solid var(--border);object-fit:contain;max-height:500px}
+.illust-block img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);object-fit:cover}
+.illust-block .illust-caption{font-size:.72rem;color:var(--mist);margin-top:.5rem;font-style:italic}
+.illust-solo{max-width:500px}
+.illust-solo img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
 .personal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.personal-grid img{width:100%;border-radius:12px;display:block;border:1.5px solid var(--border);object-fit:cover;aspect-ratio:3/4;transition:transform .2s,box-shadow .2s}
+.personal-grid img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);object-fit:cover;aspect-ratio:3/4;transition:transform .2s,box-shadow .2s}
 .personal-grid img:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(100,70,40,.12)}
 .vgrid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
 .vgrid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem}
-.vcard-sm{background:var(--white);border:1.5px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.vcard-sm{background:var(--warm);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform .2s,box-shadow .2s}
 .vcard-sm:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(100,70,40,.1)}
 .vcard-sm iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
 .vc-body{padding:.7rem .9rem .9rem}
-.vc-role{font-size:.63rem;font-weight:700;letter-spacing:.08em;color:var(--clay);margin-bottom:.25rem;text-transform:uppercase}
+.vc-role{font-size:.65rem;font-weight:700;letter-spacing:.08em;color:var(--gold);margin-bottom:.3rem;text-transform:uppercase}
 .vc-title{font-size:.8rem;font-weight:700;color:var(--ink);line-height:1.3}
-#about{background:var(--ivory);padding:100px 5%}
-.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:5rem;align-items:start}
-.about-intro{font-family:'Noto Serif KR',serif;font-size:clamp(1.2rem,2vw,1.55rem);font-weight:600;line-height:1.75;color:var(--ink);margin-bottom:1.8rem;letter-spacing:-.01em}
-.about-intro em{font-style:normal;color:var(--clay)}
-.about-body{font-size:.87rem;color:var(--ink3);line-height:2;margin-bottom:1.3rem}
-.about-body strong{color:var(--ink);font-weight:700}
-.contact-row{display:flex;flex-direction:column;gap:.6rem;margin-top:1.8rem;padding-top:1.6rem;border-top:1.5px solid var(--border)}
-.contact-item{display:flex;align-items:center;gap:.7rem;font-size:.83rem;color:var(--ink3)}
-.contact-ic{width:28px;height:28px;border-radius:50%;background:rgba(196,96,74,.1);display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
-.tool-group{margin-bottom:1.3rem}
-.tool-group-label{font-size:.6rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);margin-bottom:.7rem}
-.tool-list{display:flex;flex-wrap:wrap;gap:.4rem}
-.tool-chip{background:rgba(255,255,255,.8);border:1.5px solid var(--border);color:var(--ink3);font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:50px}
-.about-right{display:flex;flex-direction:column;gap:1.5rem}
-.about-card{background:rgba(255,255,255,.8);border:1.5px solid var(--border);border-radius:16px;padding:1.8rem;box-shadow:0 4px 20px rgba(100,70,40,.06)}
-.about-card-title{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:900;color:var(--ink);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
-.about-card-title::before{content:'';width:3px;height:1em;background:var(--clay);border-radius:2px;display:inline-block}
-.career-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
-.career-item{padding-left:1rem;border-left:2px solid var(--border);transition:border-color .2s}
-.career-item:hover{border-color:var(--clay)}
-.ci-period{font-size:.63rem;color:var(--mist);font-weight:700;letter-spacing:.06em;margin-bottom:.15rem}
-.ci-company{font-size:.84rem;font-weight:900;color:var(--ink);margin-bottom:.1rem}
-.ci-role{font-size:.73rem;color:var(--clay);font-weight:600}
-.ci-badge{display:inline-block;font-size:.58rem;font-weight:900;background:var(--clay);color:var(--white);padding:1px 7px;border-radius:50px;letter-spacing:.06em;vertical-align:middle;margin-left:.4rem}
-.design-badge{background:var(--clay)}
-.edu-badge{background:var(--sage)}
+
+/* SB GRID */
+.sb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.sb-card{background:var(--warm);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.sb-card img{width:100%;display:block;object-fit:cover}
+.sb-card-info{padding:.6rem .8rem;font-size:.68rem;color:var(--mist)}
+
+/* ABOUT */
+#about{background:var(--warm);padding:100px 5%}
+.about-hero{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:5rem}
+.about-intro-text{font-family:'Noto Serif KR',serif;font-size:clamp(1.2rem,2vw,1.6rem);font-weight:700;line-height:1.65;color:var(--ink);margin-bottom:1.6rem;letter-spacing:-.01em}
+.about-intro-text em{font-style:normal;color:var(--gold)}
+.about-body{font-size:.88rem;color:var(--ink3);line-height:2;margin-bottom:1rem}
+.about-contact{display:flex;flex-direction:column;gap:.5rem;margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid var(--border)}
+.about-contact-item{display:flex;align-items:center;gap:.7rem;font-size:.82rem;color:var(--mist)}
+.about-contact-item span{font-weight:700;color:var(--ink);min-width:24px}
+
+/* 스킬 */
+.skill-card{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:1.2rem;transition:border-color .2s,transform .2s}
+.skill-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.skill-card-cat{font-size:.62rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.skill-card-title{font-family:'Noto Serif KR',serif;font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.7rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.skill-tag{background:var(--sand);border:1px solid var(--border);color:var(--ink3);font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:4px}
+
+/* 타임라인 */
+.section-title{font-family:'Noto Serif KR',serif;font-size:1.2rem;font-weight:900;color:var(--ink);margin-bottom:2rem;display:flex;align-items:center;gap:.8rem;max-width:1100px;margin-left:auto;margin-right:auto}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.timeline-wrap{max-width:1100px;margin:0 auto 4rem}
+.timeline{display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:150px 1fr;gap:2rem;padding:1.6rem 0;border-bottom:1px solid var(--border);position:relative}
+.tl-item:last-child{border-bottom:none}
+.tl-period{font-size:.7rem;font-weight:700;color:var(--mist);letter-spacing:.04em;line-height:1.6;padding-top:.1rem}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);position:absolute;left:138px;top:1.85rem}
+.tl-company{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:900;color:var(--ink);margin-bottom:.2rem}
+.tl-role{font-size:.74rem;font-weight:700;color:var(--gold);margin-bottom:.5rem}
+.tl-desc{font-size:.8rem;color:var(--mist);line-height:1.8}
+.tl-badge{display:inline-block;background:var(--gold);color:var(--white);font-size:.6rem;font-weight:900;padding:2px 7px;border-radius:3px;margin-left:.5rem;vertical-align:middle}
+.tl-type{display:inline-block;background:var(--sand);border:1px solid var(--border);color:var(--mist);font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:3px;margin-left:.4rem;vertical-align:middle;letter-spacing:.06em}
+
+/* 교육 페이지 카드 */
+.edu-page-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+.edu-page-card{background:var(--warm);border:1px solid var(--border);border-radius:10px;padding:1.8rem}
+.edu-page-card-icon{font-size:2rem;margin-bottom:.8rem}
+.edu-page-card-title{font-family:'Noto Serif KR',serif;font-size:1rem;font-weight:900;color:var(--ink);margin-bottom:.5rem}
+.edu-page-card-desc{font-size:.82rem;color:var(--mist);line-height:1.8}
+.edu-highlight{background:linear-gradient(135deg,var(--sand),var(--warm));border:1px solid var(--border);border-radius:10px;padding:2rem;margin-bottom:2rem}
+.edu-highlight-title{font-family:'Noto Serif KR',serif;font-size:1.1rem;font-weight:900;color:var(--ink);margin-bottom:.8rem}
+.edu-highlight-desc{font-size:.85rem;color:var(--ink3);line-height:2}
+
+/* 학력 */
+.edu-section{max-width:1100px;margin:0 auto}
+.edu-item{display:flex;gap:2rem;padding:1.4rem 0;border-bottom:1px solid var(--border)}
+.edu-item:last-child{border-bottom:none}
+.edu-period{font-size:.72rem;font-weight:700;color:var(--mist);min-width:120px;padding-top:.1rem}
+.edu-school{font-size:.9rem;font-weight:900;color:var(--ink);margin-bottom:.2rem}
+.edu-major{font-size:.78rem;color:var(--mist)}
+
+/* CTA */
 #cta{background:var(--ink);padding:120px 5%;text-align:center}
-.cta-pre{font-size:.63rem;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin-bottom:1.2rem}
-.cta-h{font-family:'Noto Serif KR',serif;font-size:clamp(2rem,4vw,3.8rem);font-weight:900;color:var(--ivory);line-height:1.15;margin-bottom:1.1rem;letter-spacing:-.01em}
-.cta-h em{font-style:italic;color:var(--peach)}
-.cta-p{font-size:.9rem;color:rgba(240,234,214,.5);line-height:1.9;max-width:460px;margin:0 auto 3rem}
+.cta-pre{font-size:.65rem;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.cta-h{font-family:'Noto Serif KR',serif;font-size:clamp(2rem,4vw,3.8rem);font-weight:900;color:var(--warm);line-height:1.15;margin-bottom:1.2rem;letter-spacing:-.01em}
+.cta-h em{font-style:italic;color:var(--gold)}
+.cta-p{font-size:.9rem;color:rgba(255,255,255,.45);line-height:1.9;max-width:480px;margin:0 auto 3rem}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
-.cta-main-btn{background:var(--clay);color:var(--white);font-size:.85rem;font-weight:900;padding:14px 36px;border-radius:50px;text-decoration:none;letter-spacing:.08em;transition:background .2s,transform .15s;box-shadow:0 4px 24px rgba(196,96,74,.3)}
-.cta-main-btn:hover{background:var(--clay2);transform:translateY(-2px)}
-.cta-sec-btn{color:rgba(240,234,214,.4);font-size:.82rem;font-weight:500;text-decoration:none;border:1.5px solid rgba(240,234,214,.12);padding:13px 26px;border-radius:50px;transition:all .2s}
-.cta-sec-btn:hover{border-color:var(--clay);color:var(--clay)}
-.cta-contacts{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;border-top:1px solid rgba(240,234,214,.1);padding-top:2.5rem}
+.cta-main-btn{background:var(--gold);color:var(--white);font-size:.85rem;font-weight:900;padding:15px 38px;border-radius:4px;text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .15s;box-shadow:0 4px 24px rgba(176,125,91,.3)}
+.cta-main-btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.cta-sec-btn{color:rgba(255,255,255,.4);font-size:.82rem;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:14px 28px;border-radius:4px;transition:all .2s}
+.cta-sec-btn:hover{border-color:var(--gold);color:var(--gold)}
+.cta-contacts{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;border-top:1px solid rgba(200,184,154,.1);padding-top:2.5rem}
 .cta-c{display:flex;align-items:center;gap:.7rem}
-.cta-c-ic{width:36px;height:36px;border-radius:50%;background:rgba(196,96,74,.15);display:flex;align-items:center;justify-content:center;font-size:.85rem}
-.cta-c-info{font-size:.82rem;color:rgba(240,234,214,.5)}
-.cta-c-info strong{display:block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-bottom:2px;opacity:.8}
-footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.ft-l{font-family:'Noto Serif KR',serif;font-size:.88rem;font-weight:900;color:var(--clay);letter-spacing:.1em}
-.ft-c{font-size:.7rem;color:rgba(255,255,255,.18);letter-spacing:.06em}
+.cta-c-ic{width:34px;height:34px;border:1px solid rgba(200,184,154,.15);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.cta-c-info{font-size:.82rem;color:rgba(255,255,255,.45)}
+.cta-c-info strong{display:block;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--taupe);opacity:.5;margin-bottom:2px}
+footer{background:#120D08;padding:1.8rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.ft-l{font-family:'Noto Serif KR',serif;font-size:.88rem;font-weight:900;color:var(--gold);letter-spacing:.1em}
+.ft-c{font-size:.7rem;color:rgba(255,255,255,.2);letter-spacing:.06em}
 .ft-nav{display:flex;gap:1.5rem}
-.ft-nav a{font-size:.7rem;color:rgba(255,255,255,.18);text-decoration:none;transition:color .2s}
-.ft-nav a:hover{color:var(--clay)}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.ft-nav a{font-size:.7rem;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+.ft-nav a:hover{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
 .reveal.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 @media(max-width:960px){
   .hero-inner{grid-template-columns:1fr;gap:2.5rem}.hero-card{display:none}
   .str-grid{grid-template-columns:repeat(2,1fr)}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .about-hero{grid-template-columns:1fr;gap:2.5rem}
   .proj-header{grid-template-columns:1fr;gap:1.5rem}
-  .vgrid-2,.vgrid-3{grid-template-columns:1fr}
-  .sb-grid{grid-template-columns:repeat(2,1fr)}
+  .vgrid-2,.vgrid-3,.sb-grid{grid-template-columns:1fr 1fr}
   .illust-video-pair{grid-template-columns:1fr}
   .personal-grid{grid-template-columns:1fr 1fr}
+  .archive-grid{grid-template-columns:1fr 1fr}
+  .edu-page-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:110px 1fr;gap:1rem}
+  .tl-dot{left:98px}
   .nav-menu li:not(:last-child){display:none}
 }
 @media(max-width:600px){
-  .str-grid{grid-template-columns:1fr 1fr}.personal-grid{grid-template-columns:1fr}
-  .project-nav{gap:.3rem}.pnav-btn{font-size:.65rem;padding:.4rem .7rem}
-  .sb-grid{grid-template-columns:1fr}
+  .str-grid{grid-template-columns:1fr 1fr}
+  .personal-grid,.vgrid-2,.vgrid-3,.sb-grid{grid-template-columns:1fr}
+  .project-nav{gap:.2rem}
+  .pnav-btn{font-size:.6rem;padding:.4rem .6rem}
+  .archive-grid{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:1fr;gap:.3rem}.tl-dot{display:none}
+  .edu-item{flex-direction:column;gap:.3rem}
 }
 </style>
 </head>
 <body>
-<div id="loader"><div><div class="loader-name">이세은</div><div class="loader-sub">Animator · Artist · Creator</div><div class="loader-bar"></div></div></div>
+<div id="loader"><div class="loader-inner"><div class="loader-name">이세은</div><div class="loader-sub">Animator · Artist · Creator</div><div class="loader-line"></div></div></div>
+
 <nav id="nav">
   <div class="nav-logo">이세은</div>
   <ul class="nav-menu">
@@ -215,18 +257,20 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
     <li><a href="#cta" class="nav-cta-btn">문의하기</a></li>
   </ul>
 </nav>
+
+<!-- ═══ HERO ═══ -->
 <section id="hero">
-  <div class="hero-deco hero-deco-1"></div><div class="hero-deco hero-deco-2"></div><div class="hero-deco hero-deco-3"></div>
-  <div class="hero-deco-circle1"></div><div class="hero-deco-circle2"></div>
+  <div class="hero-bg"></div><div class="hero-grain"></div><div class="hero-line-v"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow reveal"><div class="eyebrow-dot"></div><div class="eyebrow-text">2D · 3D · Motion · XR</div></div>
+      <div class="hero-eyebrow reveal"><div class="eyebrow-line"></div><div class="eyebrow-text">2D · 3D · Animation · Education</div></div>
       <h1 class="hero-name reveal d1">이세은</h1>
       <span class="hero-name-en reveal d2">Lee Seeun</span>
       <p class="hero-desc reveal d3">스토리보드 한 장부터 최종 편집까지 —<br/><strong>기획·제작·연출 전 과정</strong>을 직접 소화하는<br/>2D/3D 올라운드 애니메이터 &amp; 아티스트</p>
       <div class="hero-chips reveal d3">
-        <span class="hchip">2D Animation</span><span class="hchip">3D Modeling</span><span class="hchip">Character Design</span>
-        <span class="hchip">Storyboard</span><span class="hchip">Motion Graphic</span><span class="hchip">XR Art</span>
+        <span class="hchip">2D Animation</span><span class="hchip">3D Modeling</span>
+        <span class="hchip">Character Design</span><span class="hchip">Storyboard</span>
+        <span class="hchip">Motion Graphic</span><span class="hchip">XR Art</span>
       </div>
       <div class="hero-btns reveal d4">
         <a href="#projects" class="btn-hero-main">Works 보기</a>
@@ -236,16 +280,16 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
     <div class="hero-card reveal d2">
       <div class="hc-label">Strengths</div>
       <div class="hc-strengths">
-        <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>적응력</strong> — 새로운 환경에 빠르게 녹아드는 능력</div></div>
-        <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>친화력</strong> — 팀과 클라이언트 모두와 자연스러운 소통</div></div>
-        <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>문제해결력</strong> — 막히는 상황에서도 방법을 찾는 실행력</div></div>
-        <div class="hc-str"><div class="hc-str-dot"></div><div class="hc-str-text"><strong>유연한 대처력</strong> — 변화하는 방향에도 흔들리지 않는 유연함</div></div>
+        <div class="hc-str"><div class="hc-str-icon">🔄</div><div class="hc-str-text"><strong>적응력</strong>새로운 환경과 요구에 빠르게 녹아드는 능력</div></div>
+        <div class="hc-str"><div class="hc-str-icon">🤝</div><div class="hc-str-text"><strong>친화력</strong>팀·클라이언트·학생 모두와 자연스럽게 소통</div></div>
+        <div class="hc-str"><div class="hc-str-icon">💡</div><div class="hc-str-text"><strong>문제해결력</strong>막히는 상황에서도 방법을 찾아내는 실행력</div></div>
+        <div class="hc-str"><div class="hc-str-icon">🌊</div><div class="hc-str-text"><strong>유연한 대처력</strong>변화하는 방향에도 흔들리지 않는 유연함</div></div>
       </div>
       <div class="hc-divider"></div>
       <div class="hc-stats">
-        <div><div class="hc-stat-n">1.5y</div><div class="hc-stat-l">Design Career</div></div>
-        <div><div class="hc-stat-n">3.5y</div><div class="hc-stat-l">Education Career</div></div>
-        <div><div class="hc-stat-n">14+</div><div class="hc-stat-l">Projects</div></div>
+        <div><div class="hc-stat-n">1.5y</div><div class="hc-stat-l">Design Exp.</div></div>
+        <div><div class="hc-stat-n">3.5y</div><div class="hc-stat-l">Education Exp.</div></div>
+        <div><div class="hc-stat-n">2D+</div><div class="hc-stat-l">3D Hybrid</div></div>
         <div><div class="hc-stat-n">All</div><div class="hc-stat-l">Pipeline</div></div>
       </div>
     </div>
@@ -253,28 +297,31 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
   <div class="scroll-cue">Scroll</div>
 </section>
 
+<!-- STRENGTH STRIP -->
 <div id="strength">
   <div class="str-grid">
     <div class="str-item reveal"><div class="str-num">01</div><div class="str-name">적응력</div><div class="str-desc">새로운 환경에 빠르게 녹아드는 능력</div></div>
-    <div class="str-item reveal d1"><div class="str-num">02</div><div class="str-name">친화력</div><div class="str-desc">팀과 클라이언트 모두와 자연스러운 소통</div></div>
+    <div class="str-item reveal d1"><div class="str-num">02</div><div class="str-name">친화력</div><div class="str-desc">팀·클라이언트·학생 모두와 자연스러운 소통</div></div>
     <div class="str-item reveal d2"><div class="str-num">03</div><div class="str-name">문제해결력</div><div class="str-desc">막히는 상황에서도 방법을 찾는 실행력</div></div>
     <div class="str-item reveal d3"><div class="str-num">04</div><div class="str-name">유연한 대처력</div><div class="str-desc">변화하는 방향에도 흔들리지 않는 유연함</div></div>
   </div>
 </div>
 
+<!-- ═══ PROJECTS ═══ -->
 <section id="projects">
   <div class="si">
     <div class="sec-head reveal">
-      <div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">Selected Works</div></div>
+      <div class="sec-label"><div class="sec-label-line"></div><div class="sec-label-text">Selected Works</div></div>
       <h2 class="sec-title">프로젝트</h2>
       <p class="sec-sub">각 탭을 클릭해 프로젝트별 상세 내용을 확인하세요</p>
     </div>
     <div class="project-nav">
-      <button class="pnav-btn active" onclick="showProject('zipshow',this)">집쇼코리아</button>
-      <button class="pnav-btn" onclick="showProject('iconic',this)">아이코닉무브먼트</button>
-      <button class="pnav-btn" onclick="showProject('grad',this)">나만 아는 이야기</button>
-      <button class="pnav-btn" onclick="showProject('tina',this)">Let's Go Tina</button>
-      <button class="pnav-btn" onclick="showProject('art',this)">아트 / 외주</button>
+      <button class="pnav-btn active" onclick="showProject('zipshow',this)">🌐 집쇼코리아</button>
+      <button class="pnav-btn" onclick="showProject('iconic',this)">🎞 아이코닉무브먼트</button>
+      <button class="pnav-btn" onclick="showProject('cookie',this)">🍪 Cookie Bebe!</button>
+      <button class="pnav-btn" onclick="showProject('grad',this)">🎓 나만 아는 이야기</button>
+      <button class="pnav-btn" onclick="showProject('tina',this)">🌟 Let's Go Tina</button>
+      <button class="pnav-btn" onclick="showProject('art',this)">🎨 아트 / 외주</button>
     </div>
 
     <!-- 집쇼코리아 -->
@@ -284,31 +331,14 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-category">Company · 집쇼코리아 XR팀</div>
           <h3 class="proj-title">집쇼코리아<br/>XR팀 아티스트</h3>
           <div class="proj-period">2023.02 — 2023.06</div>
-          <p class="proj-desc">확장현실(XR) 환경에 최적화된 2D/3D 아트 에셋 제작. 송암미술관·함안박물관 등 문화기관 프로젝트 다수 참여.</p>
-          <div class="proj-roles">
-            <span class="proj-role">영상 Source 디자인</span><span class="proj-role">스토리보드</span>
-            <span class="proj-role">캐릭터 디자인</span><span class="proj-role">3D 모델링</span>
-            <span class="proj-role">텍스쳐링</span><span class="proj-role">1인 제작</span>
-          </div>
+          <p class="proj-desc">확장현실(XR) 환경에 최적화된 2D/3D 아트 에셋 제작. 송암미술관·함안박물관 등 문화기관 프로젝트 다수 참여. 영상 소스 디자인, 스토리보드, 캐릭터 디자인, 1인 제작까지 다양한 역할을 수행했습니다.</p>
+          <div class="proj-roles"><span class="proj-role">영상 Source 디자인</span><span class="proj-role">스토리보드</span><span class="proj-role">캐릭터 디자인</span><span class="proj-role">3D 모델링</span><span class="proj-role">텍스쳐링</span><span class="proj-role">1인 제작</span></div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">기업 프로젝트</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Domain</div><div class="proj-meta-val">XR / 문화기관</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Period</div><div class="proj-meta-val">약 5개월</div></div>
         </div>
-      </div>
-      <div class="edit-point">
-        <div class="edit-point-label">작업 포인트</div>
-        <div class="edit-point-list">
-          <span class="ep-tag">미디어아트 재해석</span>
-          <span class="ep-tag">문화재 시각화</span>
-          <span class="ep-tag">XR 최적화</span>
-          <span class="ep-tag">역사 스토리텔링</span>
-        </div>
-        <p class="ep-desc">
-          <strong>송암미술관</strong> — 미술관이 보관 중인 유물들의 기원과 의미를 미디어아트로 재해석. 역사적 맥락을 시각 언어로 풀어내는 스토리보드 설계에 집중했습니다.<br/><br/>
-          <strong>함안박물관</strong> — 함안 지역의 근간인 아라가야를 배경으로, 역사를 재해석한 뮤지컬 형식의 상영작 제작. 캐릭터 디자인과 스토리보드를 담당하며 역사 콘텐츠의 생동감 있는 연출을 구현했습니다.
-        </p>
       </div>
       <div class="proj-media">
         <div class="media-label">송암미술관 (7작)</div>
@@ -341,33 +371,14 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-category">Company · (주)아이코닉무브먼트</div>
           <h3 class="proj-title">아이코닉무브먼트<br/>2D 주임</h3>
           <div class="proj-period">2022.04 — 2023.01</div>
-          <p class="proj-desc">제작 1팀 총괄 주임으로 2D 애니메이션, NFT 일러스트, 모션그래픽 전반을 리딩.</p>
-          <div class="proj-roles">
-            <span class="proj-role">팀 총괄</span><span class="proj-role">캐릭터 시트</span>
-            <span class="proj-role">스토리보드</span><span class="proj-role">애니메이팅</span>
-            <span class="proj-role">편집</span><span class="proj-role">NFT 일러스트</span>
-          </div>
+          <p class="proj-desc">제작 1팀 총괄 주임으로 2D 애니메이션, NFT 일러스트, 모션그래픽 전반을 리딩. 존중탐험대 시즌3 전체 캐릭터 시트 및 스토리보드, 에펙 완성. k3k 1인 제작, 원소주 후보정, 영도 프로젝션 맵핑 애니메이팅까지 다양한 포맷의 프로젝트를 진행했습니다.</p>
+          <div class="proj-roles"><span class="proj-role">팀 총괄</span><span class="proj-role">캐릭터 시트</span><span class="proj-role">스토리보드</span><span class="proj-role">애니메이팅</span><span class="proj-role">편집</span><span class="proj-role">NFT 일러스트</span><span class="proj-role">사운드 연출</span></div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">기업 프로젝트</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Role</div><div class="proj-meta-val">제작 1팀 주임</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Period</div><div class="proj-meta-val">약 9개월</div></div>
         </div>
-      </div>
-      <div class="edit-point">
-        <div class="edit-point-label">작업 포인트</div>
-        <div class="edit-point-list">
-          <span class="ep-tag">2D 캐릭터 애니메이션</span>
-          <span class="ep-tag">3D+2D 합성</span>
-          <span class="ep-tag">프로젝션 맵핑</span>
-          <span class="ep-tag">1인 완성</span>
-          <span class="ep-tag">팀 리딩</span>
-        </div>
-        <p class="ep-desc">
-          <strong>존중탐험대</strong> — 2D 기반 애니메이션으로, 친구들과 사이좋게 지내자는 부산광역시교육청의 기획에 맞춰 캐릭터 시트·스토리보드·애니메이팅·편집 전 과정을 담당했습니다.<br/><br/>
-          <strong>원소주</strong> — 3D+2D를 활용해 전세계적으로 다양하게 사랑받는 원소주의 모습을 표현한 웹사이트 게시용 영상. 후보정과 2D 애니메이션 요소를 결합했습니다.<br/><br/>
-          <strong>영도 프로젝션 맵핑</strong> — 바다에 쓰레기를 버리지 말자는 환경 캠페인으로, 부산 영도에서 실제 건물 외벽에 프로젝션 맵핑 애니메이션을 진행했습니다.
-        </p>
       </div>
       <div class="proj-media">
         <div class="media-label">k3k — 1인 제작</div>
@@ -379,7 +390,7 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
         <div class="vgrid-3">
           <div class="vcard-sm"><iframe src="https://www.youtube.com/embed/PkQNxUCDJ5c" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">전체 제작</div><div class="vc-title">1화</div></div></div>
           <div class="vcard-sm"><iframe src="https://www.youtube.com/embed/XbB40yyXmIc" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">전체 제작</div><div class="vc-title">2화</div></div></div>
-          <div class="vcard-sm"><iframe src="https://www.youtube.com/embed/yIL0InGWZZ4" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">제작 반·외주 반</div><div class="vc-title">3화</div></div></div>
+          <div class="vcard-sm"><iframe src="https://www.youtube.com/embed/yIL0InGWZZ4" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">제작 반 · 외주 반</div><div class="vc-title">3화</div></div></div>
         </div>
       </div>
       <div class="proj-media">
@@ -391,6 +402,42 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
       </div>
     </div>
 
+    <!-- COOKIE BEBE -->
+    <div class="project-page" id="p-cookie">
+      <div class="proj-header">
+        <div>
+          <div class="proj-category">Personal Project · 2D Animation</div>
+          <h3 class="proj-title">Cookie Bebe!</h3>
+          <div class="proj-period">2022.01 — 2022.02 (프리프로덕션)</div>
+          <p class="proj-desc">기획·시나리오·스토리보드를 담당한 단편 애니메이션 프리프로덕션 프로젝트. 부엌에서 쿠키를 만들려는 아이와 누나의 좌충우돌 이야기. 총 1개월간 기획 및 스토리보드 9컷 완성 후 제작 팀에 전달.</p>
+          <div class="proj-roles"><span class="proj-role">기획</span><span class="proj-role">시나리오</span><span class="proj-role">스토리보드</span></div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">프리프로덕션</div></div>
+          <div class="proj-meta-item"><div class="proj-meta-label">담당 범위</div><div class="proj-meta-val">기획 · 스토리보드</div></div>
+          <div class="proj-meta-item"><div class="proj-meta-label">Period</div><div class="proj-meta-val">약 1개월</div></div>
+        </div>
+      </div>
+      <div class="proj-media">
+        <div class="media-label">Animation (제작팀 완성본)</div>
+        <div class="archive-note" style="margin-bottom:1.2rem">※ 영상 업로드 준비 중입니다.</div>
+      </div>
+      <div class="proj-media">
+        <div class="media-label">Storyboard — 9컷</div>
+        <div class="sb-grid">
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard1.jpg" alt="No.1"/><div class="sb-card-info">No.1</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard2.jpg" alt="No.2"/><div class="sb-card-info">No.2</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard3.jpg" alt="No.3"/><div class="sb-card-info">No.3</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard4.jpg" alt="No.4"/><div class="sb-card-info">No.4</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard5.jpg" alt="No.5"/><div class="sb-card-info">No.5</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard6.jpg" alt="No.6"/><div class="sb-card-info">No.6</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard7.jpg" alt="No.7"/><div class="sb-card-info">No.7</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard8.jpg" alt="No.8"/><div class="sb-card-info">No.8</div></div>
+          <div class="sb-card"><img src="/seeun648.github.io/storyboard9.jpg" alt="No.9"/><div class="sb-card-info">No.9</div></div>
+        </div>
+      </div>
+    </div>
+
     <!-- 나만 아는 이야기 -->
     <div class="project-page" id="p-grad">
       <div class="proj-header">
@@ -398,28 +445,14 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-category">청강문화산업대학교 · 졸업작품</div>
           <h3 class="proj-title">나만 아는 이야기</h3>
           <div class="proj-period">2021.01 — 2021.12</div>
-          <p class="proj-desc">청강대 애니메이션 전공 졸업작품. 3D 배경 디자인·모델링·클린업과 2D 캐릭터 애니메이팅을 동시에 담당한 하이브리드 프로젝트.</p>
-          <div class="proj-roles">
-            <span class="proj-role">3D 배경 디자인</span><span class="proj-role">3D 모델링</span>
-            <span class="proj-role">클린업</span><span class="proj-role">2D 캐릭터 애니메이팅</span>
-            <span class="proj-role">대본</span><span class="proj-role">사운드 편집</span>
-          </div>
+          <p class="proj-desc">청강대 애니메이션 전공 졸업작품. 3D 배경 디자인·모델링·클린업과 2D 캐릭터 애니메이팅을 동시에 담당한 2D+3D 하이브리드 프로젝트. 대본 집필과 사운드 편집까지 직접 진행했습니다.</p>
+          <div class="proj-roles"><span class="proj-role">3D 배경 디자인</span><span class="proj-role">3D 모델링</span><span class="proj-role">클린업</span><span class="proj-role">2D 캐릭터 애니메이팅</span><span class="proj-role">대본</span><span class="proj-role">사운드 편집</span></div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">졸업작품</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Style</div><div class="proj-meta-val">2D + 3D 하이브리드</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Period</div><div class="proj-meta-val">약 12개월</div></div>
         </div>
-      </div>
-      <div class="edit-point">
-        <div class="edit-point-label">작업 포인트</div>
-        <div class="edit-point-list">
-          <span class="ep-tag">2D + 3D 하이브리드</span>
-          <span class="ep-tag">감성 연출</span>
-          <span class="ep-tag">사운드 편집</span>
-          <span class="ep-tag">서사 기획</span>
-        </div>
-        <p class="ep-desc">혼란스러움과 애틋함이 맞물린 두 소녀의 이야기. 3D로 구축한 배경 공간 위에 2D 캐릭터 애니메이션을 레이어드하는 하이브리드 방식으로, 감정선의 흐름을 섬세하게 연출하는 데 집중했습니다.</p>
       </div>
       <div class="proj-media">
         <div class="media-label">Animation</div>
@@ -433,25 +466,22 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
       <div class="proj-header">
         <div>
           <div class="proj-category">Personal Project · 2D Animation</div>
-          <h3 class="proj-title">Let's Go Tina</h3>
-          <div class="proj-period">2022</div>
-          <p class="proj-desc">개인 단편 애니메이션 프로젝트. 기획부터 애니메이팅까지 전 과정을 직접 담당했습니다.</p>
-          <div class="proj-roles">
-            <span class="proj-role">기획</span><span class="proj-role">캐릭터 디자인</span>
-            <span class="proj-role">스토리보드</span><span class="proj-role">애니메이팅</span>
-          </div>
+          <h3 class="proj-title">Let's Go Tina!</h3>
+          <div class="proj-period">2021</div>
+          <p class="proj-desc">개인 제작 단편 2D 애니메이션. 티나라는 캐릭터의 일상을 담은 작품으로, 기획·작화·편집 전 과정을 직접 담당했습니다.</p>
+          <div class="proj-roles"><span class="proj-role">기획</span><span class="proj-role">캐릭터 디자인</span><span class="proj-role">작화</span><span class="proj-role">편집</span></div>
         </div>
         <div class="proj-meta">
-          <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">단편 애니메이션</div></div>
+          <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">개인 작품</div></div>
           <div class="proj-meta-item"><div class="proj-meta-label">Role</div><div class="proj-meta-val">전 과정 1인</div></div>
         </div>
       </div>
       <div class="proj-media">
         <div class="media-label">Animation</div>
-        <div style="text-align:center;padding:3rem 2rem;background:var(--ivory);border-radius:16px;border:1.5px solid var(--border)">
-          <p style="font-size:.95rem;color:var(--ink3);margin-bottom:1.5rem">Wix에서 원본 영상을 확인하세요</p>
-          <a href="https://seeun648.wixsite.com/website/letsgotina?wix-vod-video-id=e381dc80fa7940deaa070605ca6c6fae&wix-vod-comp-id=comp-l11z6pes" target="_blank" style="display:inline-block;background:var(--clay);color:var(--white);font-size:.82rem;font-weight:900;padding:12px 28px;border-radius:50px;text-decoration:none">원본 영상 보기 →</a>
+        <div class="video-wrap">
+          <iframe src="https://seeun648.wixsite.com/website/letsgotina?wix-vod-video-id=e381dc80fa7940deaa070605ca6c6fae&wix-vod-comp-id=comp-l11z6pes" allowfullscreen loading="lazy" style="border:none;width:100%;aspect-ratio:16/9;display:block;"></iframe>
         </div>
+        <p class="video-caption">단편 애니메이션 'Let's Go Tina!' — 개인 제작 작품 · <a href="https://seeun648.wixsite.com/website/letsgotina?wix-vod-video-id=e381dc80fa7940deaa070605ca6c6fae&wix-vod-comp-id=comp-l11z6pes" target="_blank" style="color:var(--gold)">Wix에서 보기 →</a></p>
       </div>
     </div>
 
@@ -462,11 +492,8 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
           <div class="proj-category">Illustration · 외주 &amp; 개인작</div>
           <h3 class="proj-title">아트 &amp; 외주</h3>
           <div class="proj-period">2022 — 2025</div>
-          <p class="proj-desc">유튜브 영상에 삽입된 외주 일러스트 및 개인 작품. 소나무, 김팔팔, 서수 등 다양한 아티스트와의 협업 일러스트와 사이퍼즈 하랑 공모전 출품작, Cookie Bebe! 스토리보드, 개인 선화·채색 작품.</p>
-          <div class="proj-roles">
-            <span class="proj-role">캐릭터 디자인</span><span class="proj-role">컨셉아트</span>
-            <span class="proj-role">외주 일러스트</span><span class="proj-role">선화</span><span class="proj-role">채색</span><span class="proj-role">스토리보드</span>
-          </div>
+          <p class="proj-desc">유튜브 영상에 삽입된 외주 일러스트 및 개인 작품. 소나무, 김팔팔, 서수 등 다양한 아티스트와의 협업 일러스트와 사이퍼즈 하랑 공모전 출품작, 개인 선화·채색 작품.</p>
+          <div class="proj-roles"><span class="proj-role">캐릭터 디자인</span><span class="proj-role">컨셉아트</span><span class="proj-role">외주 일러스트</span><span class="proj-role">선화</span><span class="proj-role">채색</span></div>
         </div>
         <div class="proj-meta">
           <div class="proj-meta-item"><div class="proj-meta-label">Type</div><div class="proj-meta-val">일러스트 · 외주</div></div>
@@ -476,120 +503,186 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
       <div class="proj-media">
         <div class="media-label">소나무 — 나의 마음을 담아</div>
         <div class="illust-video-pair">
-          <div class="illust-block"><img src="illust_sonamu.png" alt="소나무 일러스트"/><div class="illust-caption">일러스트 · 소나무 — 나의 마음을 담아</div></div>
+          <div class="illust-block"><img src="/seeun648.github.io/illust_sonamu.png" alt="소나무"/><div class="illust-caption">일러스트 · 소나무 — 나의 마음을 담아</div></div>
           <div><div class="vcard-sm"><iframe src="https://www.youtube.com/embed/ev7lvWxrzZU" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">일러스트 작업</div><div class="vc-title">소나무 — 나의 마음을 담아</div></div></div></div>
         </div>
       </div>
       <div class="proj-media">
         <div class="media-label">김팔팔 — 오르트구름</div>
         <div class="illust-video-pair">
-          <div class="illust-block"><img src="illust_palfal.jpg" alt="김팔팔 일러스트"/><div class="illust-caption">일러스트 · 김팔팔 — 오르트구름</div></div>
+          <div class="illust-block"><img src="/seeun648.github.io/illust_palfal.jpg" alt="김팔팔"/><div class="illust-caption">일러스트 · 김팔팔 — 오르트구름</div></div>
           <div><div class="vcard-sm"><iframe src="https://www.youtube.com/embed/pFcVgm2k79g" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">일러스트 작업</div><div class="vc-title">김팔팔 — 오르트구름</div></div></div></div>
         </div>
       </div>
       <div class="proj-media">
         <div class="media-label">서수 — Night Dancer</div>
         <div class="illust-video-pair">
-          <div class="illust-block"><img src="illust_seosoo.jpg" alt="서수 일러스트"/><div class="illust-caption">일러스트 · 서수 — Night Dancer</div></div>
+          <div class="illust-block"><img src="/seeun648.github.io/illust_seosoo.jpg" alt="서수"/><div class="illust-caption">일러스트 · 서수 — Night Dancer</div></div>
           <div><div class="vcard-sm"><iframe src="https://www.youtube.com/embed/CjQtQqgCfG8" allowfullscreen loading="lazy"></iframe><div class="vc-body"><div class="vc-role">일러스트 작업</div><div class="vc-title">서수 — Night Dancer</div></div></div></div>
         </div>
       </div>
       <div class="proj-media">
         <div class="media-label">사이퍼즈 하랑 공모전</div>
-        <div style="max-width:480px"><div class="illust-solo"><img src="illust_harang.png" alt="사이퍼즈 하랑"/></div><p class="illust-caption" style="margin-top:.5rem">공모전 출품작 · 사이퍼즈 하랑 캐릭터 일러스트</p></div>
-      </div>
-      <div class="proj-media">
-        <div class="media-label">Cookie Bebe! 스토리보드</div>
-        <div class="sb-grid">
-          <div class="sb-card"><img src="storyboard1.jpg" alt="스토리보드 1"/><div class="sb-card-info">No.1</div></div>
-          <div class="sb-card"><img src="storyboard2.jpg" alt="스토리보드 2"/><div class="sb-card-info">No.2</div></div>
-          <div class="sb-card"><img src="storyboard3.jpg" alt="스토리보드 3"/><div class="sb-card-info">No.3</div></div>
-          <div class="sb-card"><img src="storyboard4.jpg" alt="스토리보드 4"/><div class="sb-card-info">No.4</div></div>
-          <div class="sb-card"><img src="storyboard5.jpg" alt="스토리보드 5"/><div class="sb-card-info">No.5</div></div>
-          <div class="sb-card"><img src="storyboard6.jpg" alt="스토리보드 6"/><div class="sb-card-info">No.6</div></div>
-          <div class="sb-card"><img src="storyboard7.jpg" alt="스토리보드 7"/><div class="sb-card-info">No.7</div></div>
-          <div class="sb-card"><img src="storyboard8.jpg" alt="스토리보드 8"/><div class="sb-card-info">No.8</div></div>
-          <div class="sb-card"><img src="storyboard9.jpg" alt="스토리보드 9"/><div class="sb-card-info">No.9</div></div>
-        </div>
+        <div class="illust-solo"><img src="/seeun648.github.io/illust_harang.png" alt="사이퍼즈 하랑"/></div>
+        <p class="video-caption" style="margin-top:.6rem">공모전 출품작 · 사이퍼즈 하랑 캐릭터 일러스트</p>
       </div>
       <div class="proj-media">
         <div class="media-label">개인작</div>
         <div class="personal-grid">
-          <img src="illust_personal.png" alt="개인작 1"/>
-          <img src="illust_personal2.png" alt="개인작 2"/>
-          <img src="illust_personal3.png" alt="개인작 3"/>
-          <img src="illust_personal4.png" alt="개인작 4"/>
-          <img src="illust_personal5.png" alt="개인작 5"/>
+          <img src="/seeun648.github.io/illust_personal.png" alt="개인작 1"/>
+          <img src="/seeun648.github.io/illust_personal2.png" alt="개인작 2"/>
+          <img src="/seeun648.github.io/illust_personal3.png" alt="개인작 3"/>
+          <img src="/seeun648.github.io/illust_personal4.png" alt="개인작 4"/>
+          <img src="/seeun648.github.io/illust_personal5.png" alt="개인작 5"/>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══ ABOUT ═══ -->
 <section id="about">
-  <div class="si">
-    <div class="sec-head reveal">
-      <div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">About</div></div>
-      <h2 class="sec-title">이세은이란 아티스트</h2>
+
+  <!-- 소개 + 스킬 -->
+  <div class="about-hero reveal">
+    <div>
+      <div class="sec-label" style="margin-bottom:.8rem"><div class="sec-label-line"></div><div class="sec-label-text">About Me</div></div>
+      <p class="about-intro-text"><em>기획에서 완성까지</em>,<br/>영상과 교육 두 분야를<br/>넘나드는 크리에이터</p>
+      <p class="about-body">2D/3D 애니메이션 제작과 미술·디지털 교육 현장을 모두 경험한 이세은입니다. 기업 디자이너 경력 <strong>약 1년 반</strong>, 미술·애니메이션 교육 경력 <strong>약 3년 반</strong>으로 두 분야의 강점을 함께 갖추고 있습니다.</p>
+      <p class="about-body">아이코닉무브먼트·집쇼코리아에서 쌓은 제작 실무와, 아트사파리·TI 미술학원·SBS아카데미에서 길러온 소통력과 적응력이 모든 작업의 토대입니다.</p>
+      <div class="about-contact">
+        <div class="about-contact-item"><span>📞</span>010-8906-8526</div>
+        <div class="about-contact-item"><span>✉</span>seeun648@gmail.com</div>
+      </div>
     </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p class="about-intro"><em>기획에서 완성까지</em>,<br/>영상의 처음과 끝을<br/>직접 만드는 아티스트입니다.</p>
-        <p class="about-body">스토리보드 한 장에서 시작해 최종 편집까지 — 2D 애니메이션과 3D 아트를 넘나드는 올라운드 크리에이터입니다. 아이코닉무브먼트에서 <strong>디자인 경력 1년 반</strong>, 아트사파리·TI 미술학원·SBS아카데미에서 <strong>교육 경력 3년 반</strong>을 쌓아왔습니다.</p>
-        <p class="about-body">5~14세 학생들과 함께한 교육 현장에서 기른 친화력과 소통 능력, 그리고 빠르게 변화하는 트렌드를 읽어내는 분석력이 모든 작업의 토대가 됩니다.</p>
-        <div style="margin-top:2rem">
-          <div class="tool-group"><div class="tool-group-label">2D</div><div class="tool-list"><span class="tool-chip">Clip Studio</span><span class="tool-chip">Photoshop</span><span class="tool-chip">Premiere Pro</span><span class="tool-chip">After Effects</span></div></div>
-          <div class="tool-group"><div class="tool-group-label">3D</div><div class="tool-list"><span class="tool-chip">Maya</span><span class="tool-chip">Substance Painter</span><span class="tool-chip">Unreal Engine</span><span class="tool-chip">Arnold</span></div></div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-item"><div class="contact-ic">📞</div>010-8906-8526</div>
-          <div class="contact-item"><div class="contact-ic">✉</div>seeun648@gmail.com</div>
-          <div class="contact-item"><div class="contact-ic">📍</div>인천광역시 부평구</div>
+    <div>
+      <div class="skill-card">
+        <div class="skill-card-cat">2D</div>
+        <div class="skill-card-title">2D 제작 도구</div>
+        <div class="skill-tags"><span class="skill-tag">Clip Studio</span><span class="skill-tag">Photoshop</span><span class="skill-tag">Premiere Pro</span><span class="skill-tag">After Effects</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-cat">3D</div>
+        <div class="skill-card-title">3D 제작 도구</div>
+        <div class="skill-tags"><span class="skill-tag">Maya</span><span class="skill-tag">Substance Painter</span><span class="skill-tag">Unreal Engine</span><span class="skill-tag">Arnold</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-cat">역량</div>
+        <div class="skill-card-title">크리에이티브 역량</div>
+        <div class="skill-tags"><span class="skill-tag">스토리보드</span><span class="skill-tag">캐릭터 디자인</span><span class="skill-tag">원화 · 동화</span><span class="skill-tag">모션 그래픽</span><span class="skill-tag">XR 아트</span><span class="skill-tag">미술 교육</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 경력 타임라인 -->
+  <div class="timeline-wrap reveal">
+    <div class="section-title">Career</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-period">2025.09 —<br/>재직 중</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-company">SBS아카데미컴퓨터아트학원 <span class="tl-badge">현재</span></div>
+          <div class="tl-role">교육사업부 EM (Education Manager) <span class="tl-type">교육</span></div>
+          <div class="tl-desc">교육 콘텐츠 기획 및 운영, 강사 관리, 커리큘럼 개발 등 교육사업부 전반 업무 총괄.</div>
         </div>
       </div>
-      <div class="about-right reveal d1">
-        <div class="about-card">
-          <div class="about-card-title">Career</div>
-          <ul class="career-list">
-            <li class="career-item">
-              <div class="ci-period">2025.09 — 재직 중</div>
-              <div class="ci-company">SBS아카데미컴퓨터아트학원 <span class="ci-badge edu-badge">현재</span></div>
-              <div class="ci-role">교육사업부 EM</div>
-            </li>
-            <li class="career-item">
-              <div class="ci-period">2025.04 — 2025.08</div>
-              <div class="ci-company">TI 미술학원</div>
-              <div class="ci-role">강사 <span class="ci-badge edu-badge">교육</span></div>
-            </li>
-            <li class="career-item">
-              <div class="ci-period">2023 — 2025</div>
-              <div class="ci-company">아트사파리창의융합미술교육</div>
-              <div class="ci-role">주임교사 <span class="ci-badge edu-badge">교육</span></div>
-            </li>
-            <li class="career-item">
-              <div class="ci-period">2023.02 — 2023.06</div>
-              <div class="ci-company">집쇼코리아 XR팀</div>
-              <div class="ci-role">2D &amp; 3D 아티스트 <span class="ci-badge design-badge">디자인</span></div>
-            </li>
-            <li class="career-item">
-              <div class="ci-period">2022.04 — 2023.01</div>
-              <div class="ci-company">(주)아이코닉무브먼트</div>
-              <div class="ci-role">제작 1팀 2D 주임 <span class="ci-badge design-badge">디자인</span></div>
-            </li>
-            <li class="career-item">
-              <div class="ci-period">2022</div>
-              <div class="ci-company">청강문화산업대학교 졸업</div>
-              <div class="ci-role">애니메이션 전공</div>
-            </li>
-          </ul>
+      <div class="tl-item">
+        <div class="tl-period">2025.04 —<br/>2025.08</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-company">TI 미술학원</div>
+          <div class="tl-role">미술 강사 <span class="tl-type">교육</span></div>
+          <div class="tl-desc">5~14세 학생 대상 회화 미술 및 디지털 드로잉 수업 진행. 학부모·학생과의 신뢰 기반 소통 및 개인별 맞춤 지도.</div>
         </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">2023 —<br/>2025</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-company">아트사파리창의융합미술교육</div>
+          <div class="tl-role">주임교사 (Lead Teacher) <span class="tl-type">교육</span></div>
+          <div class="tl-desc">5~14세 학생 대상 창의융합 미술 교육. 회화 및 디지털 드로잉 수업 기획·진행. 학부모와의 정기적인 소통으로 신뢰 구축.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">2023.02 —<br/>2023.06</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-company">집쇼코리아 XR팀</div>
+          <div class="tl-role">2D &amp; 3D 아티스트 <span class="tl-type">디자인</span></div>
+          <div class="tl-desc">XR 환경 아트 에셋 제작. 송암미술관·함안박물관 등 문화기관 프로젝트 다수 참여.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">2022.04 —<br/>2023.01</div>
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-company">(주)아이코닉무브먼트</div>
+          <div class="tl-role">제작 1팀 2D 주임 <span class="tl-type">디자인</span></div>
+          <div class="tl-desc">팀 총괄, 캐릭터 시트·스토리보드·에펙 완성. k3k 1인 제작 포함 다수 프로젝트 리딩.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 교육 경험 상세 -->
+  <div style="max-width:1100px;margin:0 auto 4rem" class="reveal">
+    <div class="section-title">Teaching Experience</div>
+    <div class="edu-highlight">
+      <div class="edu-highlight-title">🎨 미술 교육 현장에서 쌓은 것</div>
+      <div class="edu-highlight-desc">아트사파리와 TI 미술학원에서 <strong>3년 반</strong>간 5~14세 아이들을 가르치며 단순한 강의 능력 이상의 것을 키웠습니다. 매 수업마다 다른 성격과 속도를 가진 아이들 앞에서 유연하게 대처하고, 학부모와 꾸준히 소통하며 신뢰를 쌓는 법을 배웠습니다.</div>
+    </div>
+    <div class="edu-page-grid">
+      <div class="edu-page-card">
+        <div class="edu-page-card-icon">👦👧</div>
+        <div class="edu-page-card-title">학생 연령대</div>
+        <div class="edu-page-card-desc">5~14세 아동·청소년 대상 수업 진행. 연령대별로 다른 눈높이와 집중도를 빠르게 파악하고 맞춤형 방식으로 접근했습니다.</div>
+      </div>
+      <div class="edu-page-card">
+        <div class="edu-page-card-icon">🖌️</div>
+        <div class="edu-page-card-title">담당 과목</div>
+        <div class="edu-page-card-desc">회화 미술 및 디지털 드로잉. 전통적인 회화 기법과 디지털 툴을 병행 지도하며 시대의 흐름을 반영한 커리큘럼을 운영했습니다.</div>
+      </div>
+      <div class="edu-page-card">
+        <div class="edu-page-card-icon">🤝</div>
+        <div class="edu-page-card-title">학부모 신뢰 구축</div>
+        <div class="edu-page-card-desc">아이의 성장을 정기적으로 공유하고, 학부모의 피드백을 수업에 반영하는 양방향 소통으로 높은 신뢰와 재등록률을 유지했습니다.</div>
+      </div>
+      <div class="edu-page-card">
+        <div class="edu-page-card-icon">🔄</div>
+        <div class="edu-page-card-title">빠른 적응력</div>
+        <div class="edu-page-card-desc">학원의 방침 변경, 커리큘럼 개편, 새로운 학생 등 예측 불가한 상황에도 빠르게 적응해 수업 품질을 일관되게 유지했습니다.</div>
+      </div>
+      <div class="edu-page-card">
+        <div class="edu-page-card-icon">📈</div>
+        <div class="edu-page-card-title">트렌드 분석</div>
+        <div class="edu-page-card-desc">디지털 드로잉, AI 아트 등 업계 트렌드를 지속적으로 파악하고 수업에 반영해 학생들이 시대에 맞는 기술을 배울 수 있도록 했습니다.</div>
+      </div>
+      <div class="edu-page-card">
+        <div class="edu-page-card-icon">💬</div>
+        <div class="edu-page-card-title">소통 능력</div>
+        <div class="edu-page-card-desc">말이 서툰 5세부터 사춘기 14세까지, 각 연령에 맞는 언어와 방식으로 소통하며 모든 학생이 수업에 즐겁게 참여할 수 있는 환경을 만들었습니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 학력 -->
+  <div class="edu-section reveal">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div class="edu-period">2019 — 2022</div>
+      <div>
+        <div class="edu-school">청강문화산업대학교</div>
+        <div class="edu-major">애니메이션전공 졸업 · 졸업작품 &lt;나만 아는 이야기&gt;</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section id="cta">
-  <div class="si" style="max-width:660px;text-align:center">
+  <div class="si" style="max-width:680px;text-align:center">
     <div class="cta-pre reveal">지금 바로 시작할 수 있어요</div>
     <h2 class="cta-h reveal d1">당신의 이야기를<br/><em>살아 움직이게</em> 해드릴게요</h2>
     <p class="cta-p reveal d2">2D/3D 애니메이션, 캐릭터 디자인,<br/>모션그래픽, XR 아트까지 — 편하게 연락주세요.</p>
@@ -607,7 +700,7 @@ footer{background:#180E07;padding:1.8rem 5%;display:flex;align-items:center;just
 <footer>
   <div class="ft-l">이세은</div>
   <div class="ft-c">© 2025 Lee Seeun · 2D/3D Animator &amp; Artist</div>
-  <div class="ft-nav"><a href="#hero">Top ↑</a><a href="#projects">Works</a><a href="#cta">Contact</a></div>
+  <div class="ft-nav"><a href="#hero">Top ↑</a><a href="#projects">Works</a><a href="#about">About</a><a href="#cta">Contact</a></div>
 </footer>
 
 <script>
